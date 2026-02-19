@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { City } from '../../services/city';
+import { City } from '../../../../shared/services/city';
 import { Category, CityData, Place } from '../../../../shared/model';
 
 @Component({

@@ -7,64 +7,9 @@
   font-family: 'Kodchasan', sans-serif;
 }
 
-body {
-  background: #f8f8f8;
-  color: #222;
-}
-
-.cities {
-  padding: 100px 60px 80px;
-}
-
-.popular-header {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.popular-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.popular-header.first {
-  margin-top: -10px;
-}
-
-.cities-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.cities-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.cities-header p {
-  margin-top: 8px;
-  font-size: 1rem;
-  opacity: 0.75;
-}
-
-.cities-header.second {
-  margin-top: 80px;
-}
-
-.popular {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 280px);
-  gap: 0;
-  overflow: hidden;
-}
-
-
 .showcase-card {
   position: relative;
   display: flex;
-  align-items: center;
-  padding: 50px;
   text-decoration: none;
   color: white;
   background-size: cover;
@@ -77,220 +22,124 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.8;
+  background: linear-gradient(to right,
+    rgba(10,10,10,0.7),
+    rgba(10,10,10,0.4)
+  );
   z-index: 1;
   transition: opacity 0.4s ease;
 }
 
-.showcase-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
- 
-  z-index: 2;
-}
-
-.showcase-card:hover {
-  transform: scale(1.02);
-  z-index: 10;
-}
-
 .showcase-card:hover::before {
-  opacity: 0.95;
+  background: linear-gradient(to right,
+    rgba(10,10,10,0.9),
+    rgba(10,10,10,0.6)
+  );
 }
 
 .showcase-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+}
+
+/* Popular cities - large showcase style */
+.showcase-card.popular-size {
+  align-items: center;
+  padding: 50px;
+  height: 280px;
+}
+
+.showcase-card.popular-size:hover {
+  transform: scale(1.02);
+}
+
+.showcase-card.popular-size .showcase-content {
   max-width: 420px;
 }
 
-.showcase-content h2 {
+.showcase-card.popular-size .showcase-content h2 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.showcase-content p {
+.showcase-card.popular-size .showcase-content p {
   font-size: 1rem;
-  opacity: 0.9;
   margin-bottom: 15px;
   line-height: 1.5;
   opacity: 0;
   transform: translateY(15px);
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
-.showcase-card:hover p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.showcase-content span {
+.showcase-card.popular-size .showcase-content span {
   font-size: 1rem;
   font-weight: 600;
   display: inline-block;
   opacity: 0;
   transform: translateY(15px);
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
-.showcase-card:hover span {
+.showcase-card.popular-size:hover .showcase-content p,
+.showcase-card.popular-size:hover .showcase-content span {
   opacity: 1;
   transform: translateY(0);
 }
 
-.showcase-card.qc {
-  background-image: url("/assets/icons/QC.jpg");
-}
-.showcase-card.qc::before {
-  background: linear-gradient(to right,
-  rgba(10,10,10,0.85),
-  rgba(10,10,10,0.45)
-);
-
-}
-
-.showcase-card.makati {
-  background-image: url("/assets/icons/makati.jpg");
-}
-.showcase-card.makati::before {
-  background: linear-gradient(to right,
-  rgba(10,10,10,0.85),
-  rgba(10,10,10,0.45)
-);
-}
-
-.showcase-card.manila {
-  background-image: url("/assets/icons/manila.jpg");
-}
-.showcase-card.manila::before {
-  background: linear-gradient(to right,
-  rgba(10,10,10,0.85),
-  rgba(10,10,10,0.45)
-);
-}
-
-.showcase-card.taguig {
-  background-image: url("/assets/icons/taguig.jpeg");
-}
-.showcase-card.taguig::before {
-  background: linear-gradient(to right,
-  rgba(10,10,10,0.85),
-  rgba(10,10,10,0.45)
-);
-}
-
-.all-cities-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-.city-card {
-  position: relative;
+/* Regular cities - smaller card style */
+.showcase-card.regular-size {
   height: 220px;
   border-radius: 18px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  text-decoration: none;
-  color: white;
-  display: flex;
   align-items: flex-end;
   transition: transform 0.35s ease;
 }
 
-.city-card:hover {
+.showcase-card.regular-size:hover {
   transform: translateY(-6px);
 }
 
-.city-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right,
-  rgba(10,10,10,0.55),
-  rgba(10,10,10,0.45)
-  );
-  opacity: 0.6;
-  transition: opacity 0.35s ease;
-  z-index: 1;
-}
-
-.city-card:hover .overlay {
-  opacity: 0.95;
-}
-
-.card-content {
-  position: relative;
-  z-index: 2;
+.showcase-card.regular-size .showcase-content {
   padding: 22px;
   width: 100%;
 }
 
-.card-content h3 {
+.showcase-card.regular-size .showcase-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
-.card-content p,
-.explore-btn {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: all 0.35s ease;
-}
-
-.card-content p {
-  margin-top: 10px;
+.showcase-card.regular-size .showcase-content p {
   font-size: 0.95rem;
   line-height: 1.4;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
 }
 
-.explore-btn {
-  display: inline-block;
-  margin-top: 2px;
+.showcase-card.regular-size .showcase-content span {
   font-size: 0.95rem;
   font-weight: 600;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
 }
 
-.city-card:hover p,
-.city-card:hover .explore-btn {
+.showcase-card.regular-size:hover .showcase-content p,
+.showcase-card.regular-size:hover .showcase-content span {
   opacity: 1;
   transform: translateY(0);
 }
 
-@media (max-width: 1200px) {
-  .all-cities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .featured-showcase {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 250px);
-  }
-
-  .showcase-card {
+@media (max-width: 768px) {
+  .showcase-card.popular-size {
     padding: 30px;
   }
 
-  .showcase-content h2 {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .cities-page {
-    padding: 100px 25px 80px;
-  }
-
-  .all-cities-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .city-card {
-    height: 200px;
+  .showcase-card.popular-size .showcase-content h2 {
+    font-size: 2rem;
   }
 }

@@ -96,6 +96,73 @@
         }
       ]
     }
+  ],
+  "cityShowcase": [
+    {
+      "id": "quezon-city",
+      "name": "Quezon City",
+      "description": "Where old neighborhoods meet city culture.",
+      "backgroundImage": "/assets/icons/QC.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "makati",
+      "name": "Makati", 
+      "description": "The business district filled with cafés, bars, and malls.",
+      "backgroundImage": "/assets/icons/makati.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "manila",
+      "name": "Manila",
+      "description": "Historic landmarks, cultural gems, and iconic destinations.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "taguig",
+      "name": "Taguig",
+      "description": "BGC lifestyle, modern city vibes, and scenic hangout spots.",
+      "backgroundImage": "/assets/icons/taguig.jpeg",
+      "isPopular": true
+    },
+    {
+      "id": "pasig",
+      "name": "Pasig",
+      "description": "Great malls, food spots, and modern city lifestyle.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "marikina",
+      "name": "Marikina",
+      "description": "Clean city vibes, shoe capital culture, and riverside hangouts.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "mandaluyong",
+      "name": "Mandaluyong",
+      "description": "Shopping centers, entertainment, and urban lifestyle.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "san-juan",
+      "name": "San Juan",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": false
+    },
+
+    {
+      "id": "pasay",
+      "name": "Pasay",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/manila.jpg",
+      "isPopular": false
+    }
   ]
+
 }
 

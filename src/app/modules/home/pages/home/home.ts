@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { City } from '../../../../shared/services/city';
 
 declare var bootstrap: any;
 
@@ -21,6 +22,28 @@ export class Home implements AfterViewInit, OnDestroy {
   ];
 
   activeIndex = 0;
+  showcaseCities: any[] = [];
+
+  constructor(
+    private cityService: City,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    this.loadCityData();
+  }
+
+  loadCityData() {
+    this.cityService.getShowcaseCities().subscribe({
+      next: (cityList) => {
+        this.showcaseCities = cityList.slice(0, 4); 
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.error('Error loading showcase cities:', error);
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     const carouselEl = this.carouselElement.nativeElement;

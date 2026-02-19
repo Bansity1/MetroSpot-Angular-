@@ -25,9 +25,18 @@
     <h1>Find your Spot!</h1>
     <p>Click on the city where you can enjoy your gala experience to the fullest</p>
   </div>
-
-  <app-popular-cities name="Quezon City" description="wda" code="quezon-city" > </app-popular-cities>
-
+  
+  <div class="home-cities-grid">
+    @for (city of showcaseCities; track city.id) {
+      <app-popular-cities 
+        [name]="city.name" 
+        [description]="city.description" 
+        [code]="city.id"
+        [cityType]="'popular-size'"
+        [backgroundImage]="city.backgroundImage">
+      </app-popular-cities>
+    }
+  </div>
   <div class="view-all-wrapper">
     <a routerLink="/cities" class="view-all-btn">View All</a>
   </div>

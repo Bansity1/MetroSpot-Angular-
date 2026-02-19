@@ -25,3 +25,10 @@ export interface CityData {
   categories: Category[];
   places: Place[];
 }
+export interface CityShowcase {
+  id: string;
+  name: string;
+  description: string;
+  backgroundImage: string;
+  isPopular: boolean;
+}

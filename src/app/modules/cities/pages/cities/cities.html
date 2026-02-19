@@ -1,118 +1,40 @@
 <main class="cities">
-        <section class="popular-header first">
-      <h2>Popular Cities</h2>
-    </section>
+  <section class="popular-header first">
+    <h2>Popular Cities</h2>
+  </section>
 
-    <app-popular-cities></app-popular-cities>
+  <section class="popular">
+    @for (city of showcaseCities; track city.id) {
+    <a 
+      [routerLink]="['/cities', city.id]" 
+      class="showcase-card popular-size"
+      [style.background-image]="'url(' + city.backgroundImage + ')'">
+      <div class="showcase-content">
+        <h2>{{ city.name }}</h2>
+        <p>{{ city.description }}</p>
+        <span>Explore City</span>
+      </div>
+    </a>
+  }
+  </section>
 
-<section class="cities-header second">
-      <h2>Other Cities</h2>
-      <p>Many more to explore within Metro Manila</p>
-    </section>
+  <section class="cities-header second">
+    <h2>Other Cities</h2>
+    <p>Many more to explore within Metroo Manila</p>
+  </section>
 
-    <section class="all-cities-grid">
-
-      <a href="pasig.html" class="city-card" style="background-image: url('assets/icons/pasig.jpeg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Pasig</h3>
-          <p>Great malls, food spots, and modern city lifestyle.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="marikina.html" class="city-card" style="background-image: url('assets/icons/marikina.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Marikina</h3>
-          <p>Clean city vibes, shoe capital culture, and riverside hangouts.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="mandaluyong.html" class="city-card" style="background-image: url('assets/icons/mandaluyong.jpeg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Mandaluyong</h3>
-          <p>Known for shopping, food destinations, and business hubs.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="paranaque.html" class="city-card" style="background-image: url('assets/icons/paranaque.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Parañaque</h3>
-          <p>Home of entertainment, coastal vibes, and food trips.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="caloocan.html" class="city-card" style="background-image: url('assets/icons/caloocan.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Caloocan</h3>
-          <p>Local gems, markets, and community-centered places.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="laspinas.html" class="city-card" style="background-image: url('assets/icons/laspinas.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Las Piñas</h3>
-          <p>Relaxed vibes, historic spots, and family-friendly areas.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/Muntinlupa.webp');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Muntinlupa</h3>
-          <p>Home to Alabang’s lifestyle and high-end hangout places.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/sanjuan.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>San Juan</h3>
-          <p>Small city charm with cafés, food streets, and cozy places.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/valenzuela.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Valenzuela</h3>
-          <p>Urban lifestyle, hidden food spots, and local attractions.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/navotas.jpg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Navotas</h3>
-          <p>Seafood capital with coastal culture and local food trips.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/pasay.jpeg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Pasay</h3>
-          <p>Entertainment capital with malls, seaside attractions, and events.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-      <a href="muntinlupa.html" class="city-card" style="background-image: url('assets/icons/malabon.jpeg');">
-        <div class="overlay"></div>
-        <div class="card-content">
-          <h3>Malabon</h3>
-          <p>Famous culinary heritage and authentic local food experiences.</p>
-          <span class="explore-btn">Explore City</span>
-        </div>
-      </a>
-    </section>
+  <section class="all-cities-grid">
+    @for (city of regularCities; track city.id) {
+    <a 
+      [routerLink]="['/cities', city.id]" 
+      class="showcase-card regular-size"
+      [style.background-image]="'url(' + city.backgroundImage + ')'">
+      <div class="showcase-content">
+        <h2>{{ city.name }}</h2>
+        <p>{{ city.description }}</p>
+        <span>Explore City</span>
+      </div>
+    </a>
+  }
+  </section>
+</main>
