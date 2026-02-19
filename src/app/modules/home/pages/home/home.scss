@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Kodchasan', sans-serif;
+}
+
+.carousel-hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.carousel-hero .carousel-item {
+  height: 70vh;
+  min-height: 320px;
+  position: relative;
+}
+
+.carousel-hero img {
+  object-fit: cover;
+  width: 100%;
+  height: 70vh;
+}
+
+.carousel-hero .carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+.carousel-hero .carousel-caption {
+  position: absolute;
+  z-index: 2;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.8);
+}
+
+.carousel-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.progress-line {
+  width: 110px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-line .progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  transition: width 5000ms linear;
+}
+
+.cities-preview {
+  padding: 80px 5%;
+  background-color: #fff;
+  
+}
+
+.section-header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.section-header p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.view-all-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.view-all-btn {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.why-metrospot {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.why-left {
+  width: 50%;
+  padding: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.why-left h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.why-left p {
+  font-size: 1.1rem;
+  max-width: 420px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.why-right {
+  width: 50%;
+  padding: 5rem;
+  overflow-y: auto;
+}
+
+.why-block {
+  margin-bottom: 4rem;
+  max-width: 520px;
+}
+
+.why-block .num {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.why-block h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.why-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 1024px) {
+  .why-left {
+    padding: 5rem;
+  }
+
+  .why-right {
+    padding: 3rem;
+  }
+
+  .why-left h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .cities {
+    grid-template-columns: 1fr;
+  }
+
+  .city-card {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+   .carousel-hero .carousel-item {
+    height: 50vh;
+    min-height: 250px;
+  }
+
+  .carousel-hero img {
+    height: 50vh;
+  }
+  
+  .why-metrospot {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  .why-left,
+  .why-right {
+    width: 100%;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .why-left {
+    justify-content: flex-start;
+    
+  }
+
+  .why-left h2 {
+    font-size: 2.2rem;
+  }
+
+  .why-right {
+    overflow-y: visible;
+  }
+
+  .why-block {
+    max-width: 480px;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .why-block .num {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-hero .carousel-item {
+    height: 45vh;
+    min-height: 220px;
+  }
+
+  .carousel-hero img {
+    height: 45vh;
+  }
+}

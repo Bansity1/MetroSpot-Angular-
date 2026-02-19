@@ -1,0 +1,33 @@
+<div class="modal-profile" [class.active]="isOpen" (click)="onBackdropClick($event)">
+  <div class="auth-modal">
+    <button class="close-modal" (click)="close()">&times;</button>
+
+    <h2>Sign In</h2>
+    <p class="subtitle">
+      Keep track of the places you love across Metro Manila
+    </p>
+
+    <button class="google-btn">
+      <img src="assets/icons/google.svg" alt="">
+      Continue with Google
+    </button>
+
+    <div class="divider">or</div>
+
+    <div class="input-group">
+      <img src="assets/icons/email.svg" alt="">
+      <input type="email" placeholder="Email Address">
+    </div>
+
+    <div class="input-group">
+      <img src="assets/icons/lock.svg" alt="">
+      <input type="password" placeholder="Password">
+    </div>
+
+    <button class="submit-btn">Sign In</button>
+
+    <p class="modal-footer">
+      You can explore MetroSpot without an account
+    </p>
+  </div>
+</div>

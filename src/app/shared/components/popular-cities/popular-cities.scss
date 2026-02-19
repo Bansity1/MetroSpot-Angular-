@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+body {
+  background: #f8f8f8;
+  color: #222;
+}
+
+.cities {
+  padding: 100px 60px 80px;
+}
+
+.popular-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.popular-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.popular-header.first {
+  margin-top: -10px;
+}
+
+.cities-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cities-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.cities-header p {
+  margin-top: 8px;
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+.cities-header.second {
+  margin-top: 80px;
+}
+
+.popular {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 0;
+  overflow: hidden;
+}
+
+
+.showcase-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  text-decoration: none;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.showcase-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.showcase-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+ 
+  z-index: 2;
+}
+
+.showcase-card:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.showcase-card:hover::before {
+  opacity: 0.95;
+}
+
+.showcase-content {
+  position: relative;
+  z-index: 3;
+  max-width: 420px;
+}
+
+.showcase-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.showcase-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+}
+
+.showcase-card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.showcase-content span {
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+}
+
+.showcase-card:hover span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.showcase-card.qc {
+  background-image: url("/assets/icons/QC.jpg");
+}
+.showcase-card.qc::before {
+  background: linear-gradient(to right,
+  rgba(10,10,10,0.85),
+  rgba(10,10,10,0.45)
+);
+
+}
+
+.showcase-card.makati {
+  background-image: url("/assets/icons/makati.jpg");
+}
+.showcase-card.makati::before {
+  background: linear-gradient(to right,
+  rgba(10,10,10,0.85),
+  rgba(10,10,10,0.45)
+);
+}
+
+.showcase-card.manila {
+  background-image: url("/assets/icons/manila.jpg");
+}
+.showcase-card.manila::before {
+  background: linear-gradient(to right,
+  rgba(10,10,10,0.85),
+  rgba(10,10,10,0.45)
+);
+}
+
+.showcase-card.taguig {
+  background-image: url("/assets/icons/taguig.jpeg");
+}
+.showcase-card.taguig::before {
+  background: linear-gradient(to right,
+  rgba(10,10,10,0.85),
+  rgba(10,10,10,0.45)
+);
+}
+
+.all-cities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.city-card {
+  position: relative;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.35s ease;
+}
+
+.city-card:hover {
+  transform: translateY(-6px);
+}
+
+.city-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+  rgba(10,10,10,0.55),
+  rgba(10,10,10,0.45)
+  );
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+.city-card:hover .overlay {
+  opacity: 0.95;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 22px;
+  width: 100%;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.card-content p,
+.explore-btn {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+}
+
+.card-content p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.explore-btn {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.city-card:hover p,
+.city-card:hover .explore-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1200px) {
+  .all-cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .featured-showcase {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 250px);
+  }
+
+  .showcase-card {
+    padding: 30px;
+  }
+
+  .showcase-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cities-page {
+    padding: 100px 25px 80px;
+  }
+
+  .all-cities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .city-card {
+    height: 200px;
+  }
+}

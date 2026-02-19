@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  top: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-container {
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.6rem 0.8rem; 
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.navbar-logo {
+  position: static;
+  margin: 0;
+  padding-left: 0.6rem;
+  z-index: 101;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.metrospot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 100;
+}
+
+.metrospot h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-icon:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.icon-img {
+  height: 24px;
+  width: 24px;
+
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.login-modal {
+  background: #fff;
+  width: 380px;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-links li a {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.mobile-icons {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.mobile-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 940px) {
+  .navbar-container {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links,
+  .nav-icons {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    align-self: center;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .metrospot {
+    pointer-events: none;
+  }
+  }
+
+@media (max-width: 768px) {
+  .navbar-container {
+    justify-content: space-between;
+  }
+  
+  .nav-links,
+  .nav-icons {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    align-self: center;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .metrospot {
+    pointer-events: none;
+  }
+}
+@media (max-width: 480px) {
+
+   .main {
+    padding-top: 64px;
+  }
+  .navbar-container {
+    padding: 0.75rem;
+  }
+
+  .logo-img {
+    height: 28px;
+  }
+
+  .icon-img {
+    height: 20px;
+    width: 20px;
+  }
+}

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;500;600;700&display=swap');
+
+.contact-page {
+  padding: 5.5rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+.contact-page h1 {
+  margin-bottom: 3rem;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: #fff;
+  border: 2px solid transparent;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card.active {
+  border-color: #254f52;
+}
+
+.forms {
+  max-width: 600px;
+  margin: auto;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form.active {
+  display: flex;
+}
+
+input,
+textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  padding: 1rem;
+  background: #fde2b3;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <a routerLink="/">
+          <img src="assets/icons/metrospot logo1.png" alt="MetroSpot" class="logo-img">
+        </a>
+      </div>
+      <div class="metrospot">
+        <h1>MetroSpot</h1> 
+
+      </div>
+      <ul class="nav-links">
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/cities">Cities</a></li>
+        <li><a routerLink="/contact">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a routerLink="/favorites" class="nav-icon" title="Favorites">
+          <img src="assets/icons/star.svg" alt="Favorites" class="icon-img">
+        </a>
+        <a href="#" class="nav-icon" (click)="openAuthModal($event)" title="Sign In">
+          <img src="assets/icons/profile.svg" alt="Sign In" class="icon-img">
+        </a>
+      </div>
+
+      <button class="burger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu">
+         <ul class="mobile-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="cities.html">Cities</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="favorites.html">Favorites</a></li>
+          <li><a href="#signin">Sign In</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+  <app-auth-modal [(isOpen)]="showAuthModal"></app-auth-modal>

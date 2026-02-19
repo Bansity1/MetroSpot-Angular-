@@ -1,0 +1,35 @@
+<section class="contact-page">
+
+    <h1>Contact Us</h1>
+
+    <div class="contact-cards">
+      <button class="card" [class.active]="activeForm === 'contact'" (click)="showContactForm()">
+        <h3>Contact us</h3>
+        <p>Questions, feedback, or partnerships.</p>
+      </button>
+
+      <button class="card" [class.active]="activeForm === 'suggest'" (click)="showSuggestForm()">
+        <h3>Suggest a Spot</h3>
+        <p>Know a place we should feature?</p>
+      </button>
+    </div>
+
+    <div class="forms">
+
+      <form class="form" [class.active]="activeForm === 'contact'" (ngSubmit)="onContactSubmit($event)">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Your message"></textarea>
+        <button type="submit">Send message</button>
+      </form>
+
+      <form class="form" [class.active]="activeForm === 'suggest'" (ngSubmit)="onSuggestSubmit($event)">
+        <input type="text" placeholder="Place name" required>
+        <input type="text" placeholder="City (e.g. Makati)">
+        <textarea placeholder="Why should we feature this spot?"></textarea>
+        <button type="submit">Submit spot</button>
+      </form>
+
+    </div>
+
+  </section>

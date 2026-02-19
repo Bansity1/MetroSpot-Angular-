@@ -1,0 +1,101 @@
+{
+  "cities": [
+    {
+      "id": "quezon-city",
+      "name": "Quezon City",
+      "description": "Where old neighborhoods meet city culture.",
+      "culture": "Quezon City is not just big in land area — it's big in personality. Once the capital of the Philippines, the city was designed with wide avenues, government complexes, and civic landmarks that still shape its identity today.",
+      "foodScene": "QC is famous for street food hubs, café culture, and international dining. Whether you want budget eats or aesthetic restaurants, you'll find them here.",
+      "whyVisit": "It's one of the most diverse cities in Metro Manila — perfect for food trips, spontaneous hangouts, and discovering underrated gems.",
+      "categories": [
+        { "key": "about", "label": "About the City", "icon": "assets/icons/city.svg" },
+        { "key": "food", "label": "Food & Drink", "icon": "assets/icons/food.svg" },
+        { "key": "date", "label": "Date Spots", "icon": "assets/icons/heart.svg" },
+        { "key": "chill", "label": "Chill / Unwind", "icon": "assets/icons/chill.svg" },
+        { "key": "picture", "label": "Instagrammable", "icon": "assets/icons/camera.svg" },
+        { "key": "hidden", "label": "Hidden Gems", "icon": "assets/icons/diamond.svg" }
+      ],
+      "places": [
+        {
+          "name": "Ambai Cafe",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ambai1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        },
+
+        {
+          "name": "World",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ambai1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        },
+
+        {
+          "name": "Art In Island",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ambai1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "date"
+        }
+
+      ]
+    },
+
+    {
+      "id": "makati",
+      "name": "Makati",
+      "description": "Where old neighborhoods meet city culture.",
+      "culture": "Quezon City is not just big in land area — it's big in personality. Once the capital of the Philippines, the city was designed with wide avenues, government complexes, and civic landmarks that still shape its identity today.",
+      "foodScene": "QC is famous for street food hubs, café culture, and international dining. Whether you want budget eats or aesthetic restaurants, you'll find them here.",
+      "whyVisit": "It's one of the most diverse cities in Metro Manila — perfect for food trips, spontaneous hangouts, and discovering underrated gems.",
+      "categories": [
+        { "key": "about", "label": "About the City", "icon": "assets/icons/city.svg" },
+        { "key": "food", "label": "Food & Drink", "icon": "assets/icons/food.svg" },
+        { "key": "date", "label": "Date Spots", "icon": "assets/icons/heart.svg" },
+        { "key": "chill", "label": "Chill / Unwind", "icon": "assets/icons/chill.svg" },
+        { "key": "picture", "label": "Instagrammable", "icon": "assets/icons/camera.svg" },
+        { "key": "hidden", "label": "Hidden Gems", "icon": "assets/icons/diamond.svg" }
+      ],
+      "places": [
+        {
+          "name": "Sunne Space",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ambai1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        },
+
+        {
+          "name": "World",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ambai1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        }
+      ]
+    }
+  ]
+}
+
