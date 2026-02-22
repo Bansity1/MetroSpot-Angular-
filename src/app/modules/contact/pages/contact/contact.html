@@ -1,16 +1,16 @@
 <section class="contact-page">
 
-    <h1>Contact Us</h1>
+    <h1>{{ labels.PAGE_TITLE }} </h1>
 
     <div class="contact-cards">
       <button class="card" [class.active]="activeForm === 'contact'" (click)="showContactForm()">
-        <h3>Contact us</h3>
-        <p>Questions, feedback, or partnerships.</p>
+        <h3>{{ labels.CONTACT_CARD_TITLE }}</h3>
+        <p>{{ labels.CONTACT_CARD_DESC }}</p>
       </button>
 
       <button class="card" [class.active]="activeForm === 'suggest'" (click)="showSuggestForm()">
-        <h3>Suggest a Spot</h3>
-        <p>Know a place we should feature?</p>
+        <h3>{{ labels.SUGGEST_CARD_TITLE }}</h3>
+        <p>{{ labels.SUGGEST_CARD_DESC }}</p>
       </button>
     </div>
 
@@ -20,16 +20,15 @@
         <input type="text" placeholder="Your name" required>
         <input type="email" placeholder="Your email" required>
         <textarea placeholder="Your message"></textarea>
-        <button type="submit">Send message</button>
+        <button type="submit"> {{ contactForm.SUBMIT_BTN }} </button>
       </form>
 
       <form class="form" [class.active]="activeForm === 'suggest'" (ngSubmit)="onSuggestSubmit($event)">
         <input type="text" placeholder="Place name" required>
         <input type="text" placeholder="City (e.g. Makati)">
         <textarea placeholder="Why should we feature this spot?"></textarea>
-        <button type="submit">Submit spot</button>
+        <button type="submit">{{ suggestForm.SUBMIT_BTN }}</button>
       </form>
-
     </div>
 
   </section>

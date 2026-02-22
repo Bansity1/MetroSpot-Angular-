@@ -68,3 +68,25 @@ export const ABOUT = {
         ]
     }
 }
+
+export const CONTACT = {
+    LABELS: {
+        PAGE_TITLE: 'Contact Us',
+        CONTACT_CARD_TITLE: 'Contact us',
+        CONTACT_CARD_DESC: 'Questions, feedback, or partnerships.',
+        SUGGEST_CARD_TITLE: 'Suggest a Spot',
+        SUGGEST_CARD_DESC: 'Know a place we should feature?'
+    },
+    CONTACT_FORM: {
+        NAME_PLACEHOLDER: 'Your name',
+        EMAIL_PLACEHOLDER: 'Your email',
+        MESSAGE_PLACEHOLDER: 'Your message',
+        SUBMIT_BTN: 'Send message'
+    },
+    SUGGEST_FORM: {
+        PLACE_PLACEHOLDER: 'Place name',
+        CITY_PLACEHOLDER: 'City (e.g. Makati)',
+        REASON_PLACEHOLDER: 'Why should we feature this spot?',
+        SUBMIT_BTN: 'Submit spot'
+    }
+}

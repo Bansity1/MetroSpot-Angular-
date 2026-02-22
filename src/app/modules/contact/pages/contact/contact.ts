@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CONTACT } from '../../../../shared/constants';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './contact.scss',
 })
 export class Contact {
+  readonly labels = CONTACT.LABELS;
+  readonly contactForm = CONTACT.CONTACT_FORM;
+  readonly suggestForm = CONTACT.SUGGEST_FORM;
+
   activeForm: 'contact' | 'suggest' = 'contact';
 
   showContactForm(): void {
