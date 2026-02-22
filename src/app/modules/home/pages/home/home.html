@@ -22,8 +22,8 @@
 
 <section class="cities-preview">
   <div class="section-header">
-    <h1>Find your Spot!</h1>
-    <p>Click on the city where you can enjoy your gala experience to the fullest</p>
+    <h1>{{ labels.FIND_YOUR_SPOT }}</h1>
+    <p>{{ labels.CITY_SELECTION }}</p>
   </div>
   
   <div class="home-cities-grid">
@@ -38,48 +38,23 @@
     }
   </div>
   <div class="view-all-wrapper">
-    <a routerLink="/cities" class="view-all-btn">View All</a>
+    <a routerLink="/cities" class="view-all-btn">{{ labels.VIEW_ALL }}</a>
   </div>
 </section>
 
 <section class="why-metrospot">
   <div class="why-left">
-    <h2>Why MetroSpot?</h2>
-    <p>
-      A city-first way to discover places that matter.
-      Curated, calm, and built for exploring Metro Manila.
-    </p>
+    <h2> {{ labels.WHY_METROSPOT }} </h2>
+    <p> {{ labels.WHY_DESCRIPTION }} </p>
   </div>
 
   <div class="why-right">
+    @for (block of whyBlocks; track block.num){
     <div class="why-block">
-      <span class="num">01</span>
-      <h3>City-Based Discovery</h3>
-      <p>Explore curated spots by city, not noisy algorithms.</p>
-    </div>
-
-    <div class="why-block">
-      <span class="num">02</span>
-      <h3>Curated Recommendations</h3>
-      <p>No spam, no ads — just real places worth visiting.</p>
-    </div>
-
-    <div class="why-block">
-      <span class="num">03</span>
-      <h3>All-in-One Platform</h3>
-      <p>Food, date spots, and chill zones — all in one place.</p>
-    </div>
-
-    <div class="why-block">
-      <span class="num">04</span>
-      <h3>Built for Real Exploration</h3>
-      <p>Go beyond trending places and discover spots people actually return to</p>
-    </div>
-
-    <div class="why-block">
-      <span class="num">05</span>
-      <h3>Designed for Your Vibe</h3>
-      <p>Whether you’re solo, dating, or just wandering — MetroSpot adapts to how you explore.</p>
-    </div>
+        <span class="num">{{ block.num }}</span>
+        <h3>{{ block.title }}</h3>
+        <p>{{ block.description }}</p>
+      </div>
+  }
   </div>
 </section>

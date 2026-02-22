@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { HOME_CONSTANTS } from '../../../../shared/constants';
 import { City } from '../../../../shared/services/city';
 
 declare var bootstrap: any;
@@ -20,6 +21,9 @@ export class Home implements AfterViewInit, OnDestroy {
     { image: 'assets/icons/cargo.jpg', title: 'Find your next favorite spot', description: 'Tired of jumping between TikTok, Instagram, and blogs?' },
     { image: 'assets/icons/caro1.jpg', title: 'Plan your weekend', description: 'Top events and places' }
   ];
+
+  readonly labels = HOME_CONSTANTS.LABELS;
+  readonly whyBlocks = HOME_CONSTANTS.WHY_BLOCKS;
 
   activeIndex = 0;
   showcaseCities: any[] = [];

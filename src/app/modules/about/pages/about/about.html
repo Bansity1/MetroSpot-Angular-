@@ -1,31 +1,17 @@
 <section class="about-hero">
     <div class="hero-content">
-      <h1>
-        Built for the City.<br />
-        Designed for Discovery.
-      </h1>
-      <p>
-        MetroSpot helps you find the best experiences in every city,
-        one spot at a time.
-      </p>
+      <h1> {{ hero.TITLE }} </h1>
+      <p> {{ hero.DESCRIPTION }} </p>
     </div>
   </section>
 
 <section class="about-section">
     <div class="about-text">
-      <h2>About</h2>
-      <p>
-        MetroSpot is a city-based discovery platform built to help people
-        explore the best spots across Metro Manila — from local food spots
-        to hidden gems tucked away in the city.
-      </p>
+      <h2> {{ aboutSection.TITLE }} </h2>
+      <p> {{ aboutSection.DESCRIPTION }} </p>
 
-      <h2>Mission</h2>
-      <p>
-        Cities are meant to be explored, not just visited.
-        Our mission is to connect locals and tourists to the heart
-        of Metro Manila and uncover the stories that make each district unique.
-      </p>
+      <h2> {{ aboutSection.MISSION_TITLE }} </h2>
+      <p> {{ aboutSection.MISSION_DESCRIPTION }} </p>
     </div>
 
     <div class="about-map">
@@ -34,33 +20,14 @@
   </section>
 
   <section class="cards">
-      <h2 class="section-title">How MetroSpot Works</h2>
-
-        <div class="info-cards">
-            <div class="info-card">
-             <img src="assets/icons/metrospot logo1.png" alt="">
-            <h3>Why MetroSpot?</h3>
-            <p>
-             Start by selecting a city or spot 
-             you’re interested in exploring
-            </p>
+      <h2 class="section-title"> {{ howWorks.TITLE }} </h2>
+       <div class="info-cards">
+      @for (card of howWorks.CARDS; track card.title) {
+        <div class="info-card">
+          <img [src]="card.img" alt="">
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
         </div>
-
-    <div class="info-card">
-      <img src="assets/icons/folder.svg" alt="">
-      <h3>Explore Categories</h3>
-      <p>
-        Browse through categories like food, chill/unwind, 
-        and hidden gems to your interest
-      </p>
-    </div>
-
-    <div class="info-card">
-      <img src="assets/icons/spot.svg" alt="">
-      <h3>Find your Spot</h3>
-      <p>
-        Discover top-rated spots that fits your vibe
-      </p>
-    </div>
+      }
   </div>
 </section>

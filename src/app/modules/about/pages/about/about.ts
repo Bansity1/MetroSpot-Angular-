@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ABOUT } from '../../../../shared/constants';
 
 @Component({
   selector: 'app-about',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './about.scss',
 })
 export class About {
-
+  readonly hero = ABOUT.HERO;
+  readonly aboutSection = ABOUT.ABOUT_SECTION;
+  readonly howWorks = ABOUT.HOW_WORKS;
 }
