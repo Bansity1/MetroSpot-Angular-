@@ -15,19 +15,65 @@
     </div>
 
     <div class="forms">
+      <!-- Contact Form -->
+      <form class="form" 
+            [class.active]="activeForm === 'contact'" 
+            [formGroup]="contactFormGroup"
+            (ngSubmit)="onContactSubmit()">
 
-      <form class="form" [class.active]="activeForm === 'contact'" (ngSubmit)="onContactSubmit($event)">
-        <input type="text" placeholder="Your name" required>
-        <input type="email" placeholder="Your email" required>
-        <textarea placeholder="Your message"></textarea>
-        <button type="submit"> {{ contactForm.SUBMIT_BTN }} </button>
+        <input type="text" 
+               formControlName="name"
+               placeholder="Your name" required>
+
+        @if (contactFormGroup.get('name')?.invalid && contactFormGroup.get('name')?.touched) {
+          <div class="error">Name is required</div>
+        }
+
+        <input type="email" 
+               formControlName="email"
+               placeholder="Your email" required>
+         @if (contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched) {
+          <div class="error">Valid email is required</div>
+        }
+
+        <textarea formControlName="message"
+                  placeholder="Your message"></textarea>
+
+        @if (contactFormGroup.get('message')?.invalid && contactFormGroup.get('message')?.touched) {
+          <div class="error">Message is required</div>
+        }
+
+        <button type="submit" 
+                [disabled]="!contactFormGroup.valid">{{ contactForm.SUBMIT_BTN }}</button>
       </form>
 
-      <form class="form" [class.active]="activeForm === 'suggest'" (ngSubmit)="onSuggestSubmit($event)">
-        <input type="text" placeholder="Place name" required>
-        <input type="text" placeholder="City (e.g. Makati)">
-        <textarea placeholder="Why should we feature this spot?"></textarea>
-        <button type="submit">{{ suggestForm.SUBMIT_BTN }}</button>
+       <!-- Suggest Form -->
+      <form class="form" 
+            [class.active]="activeForm === 'suggest'" 
+            [formGroup]="suggestFormGroup" 
+            (ngSubmit)="onSuggestSubmit()">
+        
+        <input type="text" 
+               formControlName="placeName" 
+               placeholder="Place name" 
+               required>
+        @if (suggestFormGroup.get('placeName')?.invalid && suggestFormGroup.get('placeName')?.touched) {
+          <div class="error">Place name is required</div>
+        }
+        
+        <input type="text" 
+               formControlName="city" 
+               placeholder="City (e.g. Makati)">
+        
+        <textarea formControlName="reason" 
+                  placeholder="Why should we feature this spot?" 
+                  required></textarea>
+        @if (suggestFormGroup.get('reason')?.invalid && suggestFormGroup.get('reason')?.touched) {
+          <div class="error">Reason is required</div>
+        }
+        
+        <button type="submit" 
+                [disabled]="!suggestFormGroup.valid">{{ suggestForm.SUBMIT_BTN }}</button>
       </form>
     </div>
 
