@@ -32,35 +32,84 @@
       "id": "pasig",
       "name": "Pasig",
       "description": "Great malls, food spots, and modern city lifestyle.",
-      "backgroundImage": "/assets/icons/manila.jpg",
+      "backgroundImage": "/assets/icons/pasig.jpeg",
       "isPopular": false
     },
     {
       "id": "marikina",
       "name": "Marikina",
       "description": "Clean city vibes, shoe capital culture, and riverside hangouts.",
-      "backgroundImage": "/assets/icons/manila.jpg",
+      "backgroundImage": "/assets/icons/marikina.jpg",
       "isPopular": false
     },
     {
       "id": "mandaluyong",
       "name": "Mandaluyong",
       "description": "Shopping centers, entertainment, and urban lifestyle.",
-      "backgroundImage": "/assets/icons/manila.jpg",
+      "backgroundImage": "/assets/icons/mandaluyong.jpeg",
       "isPopular": false
     },
     {
       "id": "san-juan",
       "name": "San Juan",
       "description": "Boutique shopping, local culture, and hidden food gems.",
-      "backgroundImage": "/assets/icons/manila.jpg",
+      "backgroundImage": "/assets/icons/sanjuan.jpg",
       "isPopular": false
     },
     {
       "id": "pasay",
       "name": "Pasay",
       "description": "Boutique shopping, local culture, and hidden food gems.",
-      "backgroundImage": "/assets/icons/manila.jpg",
+      "backgroundImage": "/assets/icons/pasay.jpeg",
+      "isPopular": false
+    },
+    {
+      "id": "las piñas",
+      "name": "Las Piñas",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/laspinas.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "malabon",
+      "name": "Malabon",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/malabon.jpeg",
+      "isPopular": false
+    },
+    {
+      "id": "muntinlupa",
+      "name": "Muntinlupa",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/Muntinlupa.webp",
+      "isPopular": false
+    },
+    {
+      "id": "parañaque",
+      "name": "Parañaque",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/paranaque.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "navotas",
+      "name": "Navotas",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/navotas.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "valenzuela",
+      "name": "Valenzuela",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/valenzuela.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "caloocan",
+      "name": "Caloocan",
+      "description": "Boutique shopping, local culture, and hidden food gems.",
+      "backgroundImage": "/assets/icons/caloocan.jpg",
       "isPopular": false
     }
   ],
@@ -106,7 +155,7 @@
       ],
       "places": [
         {
-          "name": "Ambai Cafe",
+          "name": "Ambai",
           "short": "Modern Filipino Tambayan",
           "desc": "A cozy café serving Filipino dishes with a modern twist.",
           "address": "88 Matamihik Street, Quezon City",
@@ -117,13 +166,35 @@
           "category": "food"
         },
         {
-          "name": "World",
+          "name": "World's Kitchen",
           "short": "Modern Filipino Tambayan",
-          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "desc": "A cafe-restaurant and tambayan space serving Filipino cuisine with modern twists!/n",
           "address": "88 Matamihik Street, Quezon City",
           "hours": "10:00 AM - 11:00 PM",
           "price": "₱500 - ₱1000",
-          "img": "assets/icons/ambai1.jpg",
+          "img": "assets/icons/world.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        },
+        {
+          "name": "Royal Indian Curry House",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cafe-restaurant and tambayan space serving Filipino cuisine with modern twists!/n",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/rich.png",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "food"
+        },
+        {
+          "name": "Gubat QC",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cafe-restaurant and tambayan space serving Filipino cuisine with modern twists!/n",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/gubat.jpg",
           "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
           "category": "food"
         },
@@ -134,9 +205,163 @@
           "address": "88 Matamihik Street, Quezon City",
           "hours": "10:00 AM - 11:00 PM",
           "price": "₱500 - ₱1000",
-          "img": "assets/icons/ambai1.jpg",
+          "img": "assets/icons/artinisland.jpg",
           "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
           "category": "date"
+        },
+        {
+          "name": "Super Park",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/SP.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "date"
+        },
+        {
+          "name": "Neo Art",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/neo.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "date"
+        },
+        {
+          "name": "Ronac Art",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/ronac.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "date"
+        },
+        {
+          "name": "The Vibe",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/the vbe.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "chill"
+        },
+        {
+          "name": "Vertis North Rain Garden",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/vertis.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "chill"
+        },
+        {
+          "name": "Sunken Garden",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/sunken.jpeg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "chill"
+        },
+        {
+          "name": "Las Casas",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/lascasas.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "picture"
+        },
+        {
+          "name": "Grapevine",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/grape1.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "picture"
+        },
+        {
+          "name": "Good Pastry",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/good.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "picture"
+        },
+        {
+          "name": "Cafe Allor",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/allow.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "picture"
+        },
+        {
+          "name": "Humble Beginning",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/humble.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "picture"
+        },
+        {
+          "name": "Sunne Space",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/sunne.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "hidden"
+        },
+        {
+          "name": "BLCK + bistro",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/blk.jpg",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "hidden"
+        },
+        {
+          "name": "Hilltop",
+          "short": "Modern Filipino Tambayan",
+          "desc": "A cozy café serving Filipino dishes with a modern twist.",
+          "address": "88 Matamihik Street, Quezon City",
+          "hours": "10:00 AM - 11:00 PM",
+          "price": "₱500 - ₱1000",
+          "img": "assets/icons/hill.png",
+          "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
+          "category": "hidden"
         }
       ]
     },
@@ -181,26 +406,26 @@
       ],
       "places": [
         {
-          "name": "Sunne Space",
+          "name": "Kodawari",
           "short": "Modern Filipino Tambayan",
           "desc": "A cozy café serving Filipino dishes with a modern twist.",
           "address": "88 Matamihik Street, Quezon City",
           "hours": "10:00 AM - 11:00 PM",
           "price": "₱500 - ₱1000",
-          "img": "assets/icons/ambai1.jpg",
+          "img": "assets/icons/koda1.jpg",
           "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
           "category": "food"
         },
         {
-          "name": "World",
+          "name": "Spotted Pig",
           "short": "Modern Filipino Tambayan",
           "desc": "A cozy café serving Filipino dishes with a modern twist.",
           "address": "88 Matamihik Street, Quezon City",
           "hours": "10:00 AM - 11:00 PM",
           "price": "₱500 - ₱1000",
-          "img": "assets/icons/ambai1.jpg",
+          "img": "assets/icons/spot1.jpg",
           "map": "https://maps.google.com/maps?q=14.639315,121.055672&z=15&output=embed",
-          "category": "food"
+          "category": "date"
         }
       ]
     }
@@ -211,6 +436,24 @@
       "name": "Nathan sadaw",
       "email": "nathanaustri8@gmail.com",
       "message": "dwasda"
+    },
+    {
+      "id": "0d27",
+      "name": "Ivan",
+      "email": "ivanbaranda055@gmail.com",
+      "message": "jabdkhjaw"
+    },
+    {
+      "id": "4463",
+      "name": " ",
+      "email": "ivanbaranda055@gmail.com",
+      "message": "   "
+    },
+    {
+      "id": "81bf",
+      "name": "ivan",
+      "email": "b@gmail.com",
+      "message": "dsa"
     }
   ],
   "suggestions": [

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CONTACT } from '../../../../shared/constants';
-
+import { ContactService } from '../../../../shared/services/contact-service';
 @Component({
   selector: 'app-contact',
   standalone: false,
@@ -23,7 +23,7 @@ export class Contact {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private contactService: ContactService
   ) {
     this.initForms();
   }
@@ -52,7 +52,7 @@ export class Contact {
 
   onContactSubmit(): void {
     if (this.contactFormGroup.valid) {
-      this.http.post(`${this.apiURL}/contacts`,this.contactFormGroup.value)
+      this.contactService.submitContact(this.contactFormGroup.value)
       .subscribe({
         next: (response) => {
           console.log('Contact submitted:', response);
@@ -66,7 +66,7 @@ export class Contact {
 
   onSuggestSubmit(): void {
     if (this.suggestFormGroup.valid) {
-      this.http.post(`${this.apiURL}/suggestions`, this.suggestFormGroup.value)
+      this.contactService.submitSuggestion(this.suggestFormGroup.value)
         .subscribe({
           next: (response) => {
             console.log('Suggestion submitted:', response);
@@ -77,4 +77,12 @@ export class Contact {
         });
     }
   }
-}
+
+  get name(): AbstractControl | null {return this.contactFormGroup?.get('name')}
+  get email(): AbstractControl | null {return this.contactFormGroup?.get('email')}
+  get message(): AbstractControl | null {return this.contactFormGroup?.get('message')}
+
+  get placeName(): AbstractControl | null {return this.suggestFormGroup?.get('placeName');}
+  get city(): AbstractControl | null {return this.suggestFormGroup?.get('city');}
+  get reason(): AbstractControl | null {return this.suggestFormGroup?.get('reason');}
+  }

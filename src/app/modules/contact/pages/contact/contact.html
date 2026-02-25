@@ -25,21 +25,21 @@
                formControlName="name"
                placeholder="Your name" required>
 
-        @if (contactFormGroup.get('name')?.invalid && contactFormGroup.get('name')?.touched) {
+        @if (name?.invalid && name?.touched) {
           <div class="error">Name is required</div>
         }
 
         <input type="email" 
                formControlName="email"
                placeholder="Your email" required>
-         @if (contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched) {
+         @if (email?.invalid && email?.touched) {
           <div class="error">Valid email is required</div>
         }
 
         <textarea formControlName="message"
                   placeholder="Your message"></textarea>
 
-        @if (contactFormGroup.get('message')?.invalid && contactFormGroup.get('message')?.touched) {
+        @if (message?.invalid && message?.touched) {
           <div class="error">Message is required</div>
         }
 
@@ -57,7 +57,7 @@
                formControlName="placeName" 
                placeholder="Place name" 
                required>
-        @if (suggestFormGroup.get('placeName')?.invalid && suggestFormGroup.get('placeName')?.touched) {
+        @if (placeName?.invalid && placeName?.touched) {
           <div class="error">Place name is required</div>
         }
         
@@ -68,10 +68,9 @@
         <textarea formControlName="reason" 
                   placeholder="Why should we feature this spot?" 
                   required></textarea>
-        @if (suggestFormGroup.get('reason')?.invalid && suggestFormGroup.get('reason')?.touched) {
+        @if (reason?.invalid && reason?.touched) {
           <div class="error">Reason is required</div>
         }
-        
         <button type="submit" 
                 [disabled]="!suggestFormGroup.valid">{{ suggestForm.SUBMIT_BTN }}</button>
       </form>
