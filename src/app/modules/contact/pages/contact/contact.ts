@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CONTACT } from '../../../../shared/constants';
 import { ContactService } from '../../../../shared/services/contact-service';
 @Component({
@@ -10,6 +9,9 @@ import { ContactService } from '../../../../shared/services/contact-service';
   styleUrl: './contact.scss',
 })
 export class Contact {
+  private readonly fb = inject(FormBuilder);
+  private readonly contactService = inject(ContactService);
+
   readonly labels = CONTACT.LABELS;
   readonly contactForm = CONTACT.CONTACT_FORM;
   readonly suggestForm = CONTACT.SUGGEST_FORM;
@@ -21,10 +23,7 @@ export class Contact {
 
   private apiURL = 'http://localhost:3000';
 
-  constructor(
-    private fb: FormBuilder,
-    private contactService: ContactService
-  ) {
+  constructor() {
     this.initForms();
   }
 

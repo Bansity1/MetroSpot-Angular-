@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -9,9 +9,8 @@ import { CityData } from '../../shared/model/city.model';
   providedIn: 'root',
 })
 export class City {
+  private readonly http = inject(HttpClient);
   private apiURL = 'http://localhost:3000';
-
-  constructor(private http: HttpClient) {}
   
   getCityByName(cityName: string): Observable<CityData | undefined> {
     return this.http.get<CityData[]>(`${this.apiURL}/cities?id=${cityName}`)

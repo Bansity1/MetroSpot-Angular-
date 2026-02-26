@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { HOME_CONSTANTS } from '../../../../shared/constants';
 import { City } from '../../../../shared/services/city';
 
@@ -11,8 +11,11 @@ declare var bootstrap: any;
   styleUrl: './home.scss',
 })
 export class Home implements AfterViewInit, OnDestroy {
-  @ViewChild('homeCarousel') carouselElement!: ElementRef;
-  
+  @ViewChild('homeCarousel') carouselElement!: ElementRef; 
+
+  private readonly cityService = inject(City);
+  private readonly cdr = inject(ChangeDetectorRef);
+
   private bsCarousel: any;
   private interval = 5000;
 
@@ -27,11 +30,6 @@ export class Home implements AfterViewInit, OnDestroy {
 
   activeIndex = 0;
   showcaseCities: any[] = [];
-
-  constructor(
-    private cityService: City,
-    private cdr: ChangeDetectorRef
-  ) {}
 
   ngOnInit() {
     this.loadCityData();

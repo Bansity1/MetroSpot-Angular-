@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { City } from '../../../../shared/services/city';
@@ -11,21 +11,18 @@ import { Category, CityData, Place } from '../../../../shared/model';
   styleUrls: ['./city-detail.scss']
 })
 export class CityDetail implements OnInit {
+
+  private readonly route = inject(ActivatedRoute);
+  private readonly cityService = inject(City);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly cdr = inject(ChangeDetectorRef);
+  
   cityName: string = '';
   cityData: CityData | null = null;
   activeCategory = 'about';
   selectedPlace: Place | null = null;
   categories: Category[] = [];
   places: Place[] = [];
-
-  constructor(
-    private route: ActivatedRoute,
-    private cityService: City,
-    private sanitizer: DomSanitizer,
-    private cdr: ChangeDetectorRef
-  ) {
-    console.log('CityDetail constructor called');
-  }
 
   ngOnInit() {
     console.log('ngOnInit called');
@@ -71,7 +68,8 @@ export class CityDetail implements OnInit {
   }
 
   openPlace(place: Place) {
-    this.selectedPlace = { ...place };
+    this.selectedPlace = place;
+    console.log(place, this.selectedPlace)
   }
 
   closeModal() {
@@ -82,20 +80,5 @@ export class CityDetail implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  saveToFavorites() {
-    if (!this.selectedPlace) return;
-
-    let favorites = JSON.parse(localStorage.getItem('myFavorites') || '[]');
-    const exists = favorites.find((f: any) => f.name === this.selectedPlace?.name);
-
-    if (!exists) {
-      favorites.push(this.selectedPlace);
-      localStorage.setItem('myFavorites', JSON.stringify(favorites));
-      alert('Saved to favorites!');
-    } else {
-      alert('Already in favorites.');
-    }
-
-    this.closeModal();
-  }
+  
 }

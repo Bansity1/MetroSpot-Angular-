@@ -31,7 +31,7 @@
         </div>
 
         <div class="about-box">
-          <h3>Why Visit?</h3>
+          <h3>Why Visit</h3>
           <p>{{ cityData?.whyVisit }}</p>
         </div>
       </div>
@@ -59,20 +59,20 @@
       <span class="close" (click)="closeModal()">&times;</span>
       <div class="modal-layout">
         <div class="modal-left">
-          <img class="modal-img" [src]="selectedPlace?.img" [alt]="selectedPlace?.name">
-          <iframe class="modal-map" [src]="getSafeMapUrl(selectedPlace?.map || '')" allowfullscreen></iframe>
+          <img class="modal-img" [src]="selectedPlace.img" [alt]="selectedPlace.name">
+          <iframe class="modal-map" [src]="getSafeMapUrl(selectedPlace.map || '')" allowfullscreen></iframe>
         </div>
         <div class="modal-right">
-          <h2>{{ selectedPlace?.name }}</h2>
-          <p class="desc">{{ selectedPlace?.desc }}</p>
+          <h2>{{ selectedPlace.name }}</h2>
+          <p class="desc">{{ selectedPlace.desc }}</p>
           <div class="info">
-            <p><b>📍 Address:</b> <span>{{ selectedPlace?.address }}</span></p>
-            <p><b>🕒 Hours:</b> <span>{{ selectedPlace?.hours }}</span></p>
-            <p><b>💰 Price:</b> <span>{{ selectedPlace?.price }}</span></p>
+            <p><b>📍 Address:</b> <span>{{ selectedPlace.address }}</span></p>
+            <p><b>🕒 Hours:</b> <span>{{ selectedPlace.hours }}</span></p>
+            <p><b>💰 Price:</b> <span>{{ selectedPlace.price }}</span></p>
           </div>
           <div class="modal-actions">
             <button class="btn-cancel" (click)="closeModal()">Close</button>
-            <button class="btn-save" (click)="saveToFavorites()">Save</button>
+            <button class="btn-save">Save</button>
           </div>
         </div>
       </div>

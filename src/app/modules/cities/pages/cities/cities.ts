@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { City } from '../../../../shared/services/city';
 
 @Component({
@@ -8,13 +8,12 @@ import { City } from '../../../../shared/services/city';
   styleUrl: './cities.scss',
 })
 export class Cities implements OnInit {
+
+  private readonly cityService = inject(City);
+  private readonly cdr = inject(ChangeDetectorRef);
+
   showcaseCities: any[] = [];
   regularCities: any[] = [];
-
-  constructor(
-    private cityService: City,
-    private cdr: ChangeDetectorRef
-  ) {}
 
   ngOnInit() {
     this.loadCityData();

@@ -1,12 +1,12 @@
 export interface Place {
-  name: string;
-  short: string;
-  desc: string;
-  address: string;
-  hours: string;
-  price: string;
-  img: string;
-  map: string;
+  name?: string;
+  short?: string;
+  desc?: string;
+  address?: string;
+  hours?: string;
+  price?: string;
+  img?: string;
+  map?: string;
   category: string;
 }
 
@@ -32,3 +32,4 @@ export interface CityShowcase {
   backgroundImage: string;
   isPopular: boolean;
 }
+

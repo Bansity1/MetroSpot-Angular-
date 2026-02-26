@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -12,7 +12,9 @@ export class App {
   protected readonly title = signal('metrospot-ang');
   showFooter = false;
 
-  constructor(private router: Router) {
+  private readonly router = inject(Router);
+
+  ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
