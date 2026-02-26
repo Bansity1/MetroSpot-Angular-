@@ -1,3 +1,20 @@
+export interface Slide {
+  image: string;
+  title: string;
+  description: string;
+}
+export interface ContactData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface SuggestionData {
+  placeName: string;
+  city: string;
+  reason: string;
+}
+
 export interface Place {
   name?: string;
   short?: string;

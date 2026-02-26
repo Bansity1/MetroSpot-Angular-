@@ -1,22 +1,23 @@
 <div #homeCarousel id="homeCarousel" class="carousel slide carousel-fade carousel-hero" data-bs-ride="carousel" data-bs-interval="5000">
   <div class="carousel-inner">
-    <div *ngFor="let slide of slides; let i = index" 
-         class="carousel-item" 
-         [class.active]="i === 0">
-      <img [src]="slide.image" class="d-block w-100" [alt]="'Slide ' + (i + 1)">
+    
+    @for (slide of slides; track $index) {
+      <div class="carousel-item" [class.active]="$index === 0">
+      <img [src]="slide.image" class="d-block w-100" [alt]="'Slide ' + ($index + 1 )">
       <div class="carousel-caption">
         <h2>{{ slide.title }}</h2>
         <p>{{ slide.description }}</p>
       </div>
     </div>
-  </div>
+  }
+  </div>  
 
   <div id="carouselProgress" class="carousel-progress" aria-hidden="true">
-    <div *ngFor="let slide of slides; let i = index" 
-         class="progress-line" 
-         (click)="goToSlide(i)">
+    @for (slide of slides; track $index) {
+      <div class="progress-line" (click)="goToSlide($index)">
       <span class="progress-fill"></span>
     </div>
+  }
   </div>
 </div>
 

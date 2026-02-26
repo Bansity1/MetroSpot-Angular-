@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { City } from '../../../../shared/services/city';
+import { CityShowcase } from '../../../../shared/model';
 
 @Component({
   selector: 'app-cities',
@@ -12,8 +13,8 @@ export class Cities implements OnInit {
   private readonly cityService = inject(City);
   private readonly cdr = inject(ChangeDetectorRef);
 
-  showcaseCities: any[] = [];
-  regularCities: any[] = [];
+  showcaseCities: CityShowcase[] = [];
+  regularCities: CityShowcase[] = [];
 
   ngOnInit() {
     this.loadCityData();
