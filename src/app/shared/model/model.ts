@@ -16,7 +16,7 @@ export interface SuggestionData {
 }
 
 export interface Place {
-  name?: string;
+  name: string;
   short?: string;
   desc?: string;
   address?: string;
@@ -49,4 +49,7 @@ export interface CityShowcase {
   backgroundImage: string;
   isPopular: boolean;
 }
-
+export interface SavedPlace extends Place {
+  cityName: string;
+  savedAt: Date;
+}

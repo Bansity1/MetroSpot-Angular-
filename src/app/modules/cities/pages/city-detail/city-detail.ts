@@ -2,7 +2,9 @@ import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { City } from '../../../../shared/services/city';
+import { CITY_DETAIL } from '../../../../shared/constants/index';
 import { Category, CityData, Place } from '../../../../shared/model';
+import { FavoritesService } from '../../../../shared/services/favorite-service';
 
 @Component({
   selector: 'app-city-detail',
@@ -11,12 +13,14 @@ import { Category, CityData, Place } from '../../../../shared/model';
   styleUrls: ['./city-detail.scss']
 })
 export class CityDetail implements OnInit {
-
+  labels = CITY_DETAIL.LABELS;
+  
   private readonly route = inject(ActivatedRoute);
   private readonly cityService = inject(City);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly cdr = inject(ChangeDetectorRef);
-  
+  private readonly favoritesService = inject(FavoritesService);
+
   cityName: string = '';
   cityData: CityData | null = null;
   activeCategory = 'about';
@@ -80,5 +84,11 @@ export class CityDetail implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  
+  toggleSave(place: Place) {
+    this.favoritesService.toggle(place, this.cityData?.name || this.cityName);
+  }
+
+  isSaved(place: Place): boolean {
+    return this.favoritesService.isSaved(place.name);
+  }
 }

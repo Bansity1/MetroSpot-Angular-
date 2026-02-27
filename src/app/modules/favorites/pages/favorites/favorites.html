@@ -1,1 +1,68 @@
-<p>favorites works!</p>
+<div class="favorites-page">
+
+  <div class="fav-header">
+    <div class="fav-title">
+      <img class="star-icon" src="assets/icons/starshade.svg" alt="Favorites">
+      <div>
+        <h1>{{ labels.TITLE }}</h1>
+        <p>{{ labels.DESCRIPTION }}</p>
+      </div>
+    </div>
+    <select class="sort-select" (change)="setSortOrder($any($event.target).value)">
+      <option value="recent">{{ labels.SORT_RECENT }}</option>
+      <option value="alpha">{{ labels.SORT_ALPHA }}</option>
+    </select>
+  </div>
+
+  <div class="fav-body">
+    <aside class="fav-sidebar">
+      <div class="sidebar-section">
+        <h3>{{ labels.QUICK_FILTERS }}</h3>
+        @for (filter of filters; track filter.key) {
+          <button
+            class="filter-btn"
+            [class.active]="activeFilter === filter.key"
+            (click)="setFilter(filter.key)">
+            {{ filter.label }}
+          </button>
+        }
+      </div>
+
+      <div class="sidebar-section stats-box">
+        <h3>{{ labels.FAVORITE_STATS }}</h3>
+        <p><span class="stat-num">{{ stats.total }}</span> {{ labels.SPOTS_SAVED }}</p>
+        <p>{{ labels.MOST_VISITED }} <strong>{{ stats.topCity }}</strong></p>
+        <p>{{ labels.TOP_CATEGORY }} <span class="stat-badge">{{ stats.topCategory }}</span></p>
+      </div>
+    </aside>
+
+    <section class="fav-grid">
+      @if (allFavorites.length === 0) {
+        <div class="empty-state">
+          <p>{{ labels.EMPTY_STATE }}</p>
+          <p>{{ labels.EMPTY_CTA }}</p>
+        </div>
+      }
+
+      @if (filteredFavorites.length === 0 && allFavorites.length > 0) {
+        <div class="empty-state">
+          <p>{{ labels.EMPTY_CATEGORY }}</p>
+        </div>
+      }
+
+      @for (place of filteredFavorites; track place.name) {
+        <div class="fav-card">
+          <div class="card-img-wrap">
+            <img [src]="place.img" [alt]="place.name">
+            <button class="remove-btn" (click)="removeSpot(place)" title="Remove">⋮</button>
+          </div>
+          <div class="card-info">
+            <h4>{{ place.name }}</h4>
+            <p class="card-city">{{ place.cityName }} <span class="cat-tag">{{ getCategoryLabel(place.category) }}</span></p>
+            <p class="card-notes">{{ place.short }}</p>
+          </div>
+        </div>
+      }
+    </section>
+  </div>
+</div>

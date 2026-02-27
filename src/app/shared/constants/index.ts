@@ -90,3 +90,35 @@ export const CONTACT = {
         SUBMIT_BTN: 'Submit spot'
     }
 }
+
+export const CITY_DETAIL = {
+  LABELS: {
+    PICK_CATEGORY: 'Pick a Category',
+    CULTURE: 'Culture & Lifestyle',
+    FOOD_SCENE: 'Food Scene',
+    WHY_VISIT: 'Why Visit',
+    ADDRESS: '📍 Address:',
+    HOURS: '🕒 Hours:',
+    PRICE: '💰 Price:',
+    CLOSE: 'Close',
+    SAVE: '☆ Save',
+    SAVED: '★ Saved',
+  }
+}
+
+export const FAVORITES = {
+  LABELS: {
+    TITLE: 'My Favorites',
+    DESCRIPTION: 'Your saved spots across Metro Manila',
+    QUICK_FILTERS: 'Quick Filters',
+    FAVORITE_STATS: 'Favorite Stats',
+    SPOTS_SAVED: 'spots saved',
+    MOST_VISITED: 'Most visited:',
+    TOP_CATEGORY: 'Top category:',
+    EMPTY_STATE: 'No saved spots yet.',
+    EMPTY_CTA: 'Explore a city and hit Save on a place!',
+    EMPTY_CATEGORY: 'No spots in this category yet.',
+    SORT_RECENT: 'Recent',
+    SORT_ALPHA: 'A-Z',
+  }
+}

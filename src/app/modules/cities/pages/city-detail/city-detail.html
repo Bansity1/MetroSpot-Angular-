@@ -1,6 +1,6 @@
 <main class="layout">
   <aside class="sidebar">
-    <h2>Pick a Category</h2>
+    <h2>{{ labels.PICK_CATEGORY }}</h2>
     @for (cat of categories; track cat.key) {
       <button
         class="category"
@@ -19,19 +19,19 @@
       <div class="category-content">
         <h1>{{ cityData?.name }}</h1>
         <p class="subtitle">{{ cityData?.description }}</p>
-        
+
         <div class="about-box">
-          <h3>Culture & Lifestyle</h3>
+          <h3>{{ labels.CULTURE }}</h3>
           <p>{{ cityData?.culture }}</p>
         </div>
 
         <div class="about-box">
-          <h3>Food Scene</h3>
+          <h3>{{ labels.FOOD_SCENE }}</h3>
           <p>{{ cityData?.foodScene }}</p>
         </div>
 
         <div class="about-box">
-          <h3>Why Visit</h3>
+          <h3>{{ labels.WHY_VISIT }}</h3>
           <p>{{ cityData?.whyVisit }}</p>
         </div>
       </div>
@@ -66,13 +66,18 @@
           <h2>{{ selectedPlace.name }}</h2>
           <p class="desc">{{ selectedPlace.desc }}</p>
           <div class="info">
-            <p><b>📍 Address:</b> <span>{{ selectedPlace.address }}</span></p>
-            <p><b>🕒 Hours:</b> <span>{{ selectedPlace.hours }}</span></p>
-            <p><b>💰 Price:</b> <span>{{ selectedPlace.price }}</span></p>
+            <p><b>{{ labels.ADDRESS }}</b> <span>{{ selectedPlace.address }}</span></p>
+            <p><b>{{ labels.HOURS }}</b> <span>{{ selectedPlace.hours }}</span></p>
+            <p><b>{{ labels.PRICE }}</b> <span>{{ selectedPlace.price }}</span></p>
           </div>
           <div class="modal-actions">
-            <button class="btn-cancel" (click)="closeModal()">Close</button>
-            <button class="btn-save">Save</button>
+            <button class="btn-cancel" (click)="closeModal()">{{ labels.CLOSE }}</button>
+            <button
+              class="btn-save"
+              [class.saved]="selectedPlace && isSaved(selectedPlace)"
+              (click)="selectedPlace && toggleSave(selectedPlace)">
+              {{ selectedPlace && isSaved(selectedPlace) ? labels.SAVED : labels.SAVE }}
+            </button>
           </div>
         </div>
       </div>
