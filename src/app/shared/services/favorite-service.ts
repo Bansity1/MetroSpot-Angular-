@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Place, SavedPlace } from '../model';
+import { Place, SavedPlace } from '../model/model';
 
 @Injectable({ providedIn: 'root' })
 export class FavoritesService {
@@ -35,7 +35,12 @@ export class FavoritesService {
     if (index > -1) {
       updated = current.filter((_, i) => i !== index);
     } else {
-      updated = [...current, { ...place, cityName, savedAt: new Date() }];
+      updated = [...current, { 
+        ...place, 
+        cityName, 
+        savedAt: new Date(),
+        short: place.short ?? ''  // ← handles short
+      }];
     }
 
     this.favoritesSubject.next(updated);
@@ -48,4 +53,13 @@ export class FavoritesService {
     this.favoritesSubject.next(updated);
     this.saveToStorage(updated);
   }
+  
+  updateDescription(name: string, newDescription: string) {
+  const current = this.favoritesSubject.getValue();
+  const updated = current.map(p =>
+    p.name === name ? { ...p, short: newDescription } : p
+  );
+  this.favoritesSubject.next(updated);
+  this.saveToStorage(updated); // persists to localStorage
+} 
 }

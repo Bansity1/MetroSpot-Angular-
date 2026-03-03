@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FavoritesService } from '../../../../shared/services/favorite-service';
 import { FAVORITES } from '../../../../shared/constants/index';
 import { SavedPlace } from '../../../../shared/model/model';
+
 @Component({
   selector: 'app-favorites',
   standalone: false,
@@ -12,11 +13,15 @@ export class Favorites implements OnInit {
   private readonly favoritesService = inject(FavoritesService);
 
   labels = FAVORITES.LABELS;
-  
+
   allFavorites: SavedPlace[] = [];
   filteredFavorites: SavedPlace[] = [];
   activeFilter: string = 'all';
   sortOrder: string = 'recent';
+
+  activeMenuName: string | null = null;
+  editingPlace: SavedPlace | null = null;
+  editDescription: string = '';
 
   filters = [
     { key: 'all', label: 'All' },
@@ -58,11 +63,40 @@ export class Favorites implements OnInit {
     this.applyFilter();
   }
 
-  removeSpot(place: SavedPlace) {
-    this.favoritesService.remove(place.name);
+  toggleMenu(placeName: string, event: Event) {
+    event.stopPropagation();
+    this.activeMenuName = this.activeMenuName === placeName ? null : placeName;
   }
 
-  
+  closeMenu() {
+    this.activeMenuName = null;
+  }
+
+  openEdit(place: SavedPlace, event: Event) {
+    event.stopPropagation();
+    this.editingPlace = { ...place };
+    this.editDescription = place.short;
+    this.activeMenuName = null;
+  }
+
+  saveEdit() {
+    if (!this.editingPlace) return;
+    this.favoritesService.updateDescription(this.editingPlace.name, this.editDescription);
+    this.editingPlace = null;
+    this.editDescription = '';
+  }
+
+  cancelEdit() {
+    this.editingPlace = null;
+    this.editDescription = '';
+  }
+
+  removeSpot(place: SavedPlace, event: Event) {
+    event.stopPropagation();
+    this.favoritesService.remove(place.name);
+    this.activeMenuName = null;
+  }
+
   getCategoryLabel(key: string): string {
     const map: Record<string, string> = {
       food: 'Food & Drink',
@@ -93,5 +127,4 @@ export class Favorites implements OnInit {
       topCategory: topCat ? this.getCategoryLabel(topCat[0]) : '—',
     };
   }
-
 }

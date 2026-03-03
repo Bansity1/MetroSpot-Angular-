@@ -52,4 +52,5 @@ export interface CityShowcase {
 export interface SavedPlace extends Place {
   cityName: string;
   savedAt: Date;
+  short: string;  
 }

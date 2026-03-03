@@ -1,4 +1,4 @@
-<div class="favorites-page">
+<div class="favorites-page" (click)="closeMenu()">
 
   <div class="fav-header">
     <div class="fav-title">
@@ -54,7 +54,15 @@
         <div class="fav-card">
           <div class="card-img-wrap">
             <img [src]="place.img" [alt]="place.name">
-            <button class="remove-btn" (click)="removeSpot(place)" title="Remove">⋮</button>
+            <div class="card-menu-wrap">
+              <button class="remove-btn" (click)="toggleMenu(place.name, $event)" title="Options">⋮</button>
+              @if (activeMenuName === place.name) {
+                <div class="card-dropdown" (click)="$event.stopPropagation()">
+                  <button class="dropdown-item" (click)="openEdit(place, $event)">Edit</button>
+                  <button class="dropdown-item delete" (click)="removeSpot(place, $event)">Delete</button>
+                </div>
+              }
+            </div>
           </div>
           <div class="card-info">
             <h4>{{ place.name }}</h4>
@@ -66,3 +74,23 @@
     </section>
   </div>
 </div>
+
+<!-- Edit Modal -->
+@if (editingPlace) {
+  <div class="modal-overlay" (click)="cancelEdit()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <h3>Edit Description</h3>
+      <p class="modal-place-name">{{ editingPlace.name }}</p>
+      <textarea
+        class="modal-textarea"
+        [(ngModel)]="editDescription"
+        rows="4"
+        placeholder="Update description...">
+      </textarea>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
+        <button class="btn-save" (click)="saveEdit()">Save</button>
+      </div>
+    </div>
+  </div>
+}
