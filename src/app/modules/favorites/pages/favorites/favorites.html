@@ -23,6 +23,9 @@
             class="filter-btn"
             [class.active]="activeFilter === filter.key"
             (click)="setFilter(filter.key)">
+            @if (filter.icon) {
+            <img [src]="filter.icon" [alt]="filter.label" class="filter-icon">
+            }
             {{ filter.label }}
           </button>
         }

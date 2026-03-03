@@ -60,6 +60,7 @@
   }
 }
 
+
 // ── BODY ────────────────────────────────────────
 .fav-body {
   display: flex;
@@ -106,6 +107,7 @@
     color: #444;
     transition: background 0.2s;
     margin-bottom: 4px;
+    gap: 8px;
 
     &:last-child { margin-bottom: 0; }
     &:hover { background: #f5f5f5; }
@@ -113,6 +115,11 @@
       background: #e9d8b5;
       font-weight: 600;
       color: #111;
+    }
+    .filter-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
     }
   }
 }

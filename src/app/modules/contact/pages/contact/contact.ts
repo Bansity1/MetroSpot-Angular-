@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup,ValidationErrors, Validators } from '@angular/forms';
 import { CONTACT } from '../../../../shared/constants';
 import { ContactService } from '../../../../shared/services/contact-service';
 @Component({
@@ -27,18 +27,36 @@ export class Contact {
     this.initForms();
   }
 
+  private noWhitespace(control: AbstractControl): ValidationErrors | null {
+    const value = control.value || '';
+    const isWhitespace = value.trim().length === 0;
+    return isWhitespace && value.length > 0 ? { whitespace: true } : null;
+  }
+
   private initForms(): void {
     this.contactFormGroup = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
+      name:    ['', [Validators.required, this.noWhitespace]],
+      email:   ['', [Validators.required, Validators.email]],
+      message: ['', [Validators.required, this.noWhitespace]]
     });
 
     this.suggestFormGroup = this.fb.group({
-      placeName: ['', Validators.required],
-      city: [''],
-      reason: ['', Validators.required]
+      placeName: ['', [Validators.required, this.noWhitespace]],
+      city:      [''],
+      reason:    ['', [Validators.required, this.noWhitespace]]
     });
+  }
+
+  trimLeading(controlName: string, formGroup: FormGroup): void {
+    const control = formGroup.get(controlName);
+    if (!control) return;
+
+    const value: string = control.value;
+    const trimmed = value.trimStart();
+
+    if (value !== trimmed) {
+      control.setValue(trimmed, { emitEvent: false });
+    }
   }
 
   showContactForm(): void {
@@ -51,7 +69,12 @@ export class Contact {
 
   onContactSubmit(): void {
     if (this.contactFormGroup.valid) {
-      this.contactService.submitContact(this.contactFormGroup.value)
+      const trimmed = {
+        name:    this.contactFormGroup.value.name.trim(),
+        email:   this.contactFormGroup.value.email.trim(),
+        message: this.contactFormGroup.value.message.trim(),
+      };
+      this.contactService.submitContact(trimmed)
       .subscribe({
         next: (response) => {
           console.log('Contact submitted:', response);
@@ -65,7 +88,12 @@ export class Contact {
 
   onSuggestSubmit(): void {
     if (this.suggestFormGroup.valid) {
-      this.contactService.submitSuggestion(this.suggestFormGroup.value)
+      const trimmed = {
+        placeName: this.suggestFormGroup.value.placeName.trim(),
+        city:      this.suggestFormGroup.value.city?.trim(),
+        reason:    this.suggestFormGroup.value.reason.trim(),
+      };
+      this.contactService.submitSuggestion(trimmed)
         .subscribe({
           next: (response) => {
             console.log('Suggestion submitted:', response);
@@ -76,6 +104,8 @@ export class Contact {
         });
     }
   }
+
+
 
   get name(): AbstractControl | null {return this.contactFormGroup?.get('name')}
   get email(): AbstractControl | null {return this.contactFormGroup?.get('email')}

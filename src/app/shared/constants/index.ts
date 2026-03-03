@@ -97,12 +97,15 @@ export const CITY_DETAIL = {
     CULTURE: 'Culture & Lifestyle',
     FOOD_SCENE: 'Food Scene',
     WHY_VISIT: 'Why Visit',
-    ADDRESS: '📍 Address:',
-    HOURS: '🕒 Hours:',
-    PRICE: '💰 Price:',
+    ADDRESS: 'Address: ',
+    HOURS: 'Hours: ',
+    PRICE: 'Price: ',
     CLOSE: 'Close',
     SAVE: '☆ Save',
     SAVED: '★ Saved',
+  },
+  ICONS: {
+    ADDRESS: 'assets/icons/map.svg',
   }
 }
 

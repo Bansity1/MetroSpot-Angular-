@@ -24,12 +24,12 @@ export class Favorites implements OnInit {
   editDescription: string = '';
 
   filters = [
-    { key: 'all', label: 'All' },
-    { key: 'food', label: '🍴 Food & Drink' },
-    { key: 'date', label: '❤️ Date Spots' },
-    { key: 'chill', label: '🌿 Chill / Unwind' },
-    { key: 'picture', label: '📸 Instagrammable' },
-    { key: 'hidden', label: '💎 Hidden Gems' },
+    { key: 'all', label: 'All'},
+    { key: 'food', label: 'Food & Drink', icon: "assets/icons/food.svg" },
+    { key: 'date', label: 'Date Spots', icon: "assets/icons/heart.svg" },
+    { key: 'chill', label: 'Chill / Unwind', icon: "assets/icons/chill.svg" },
+    { key: 'picture', label: 'Instagrammable', icon: "assets/icons/camera.svg" },
+    { key: 'hidden', label: 'Hidden Gems', icon: "assets/icons/diamond.svg" },
   ];
 
   ngOnInit() {

@@ -23,10 +23,15 @@
 
         <input type="text" 
                formControlName="name"
-               placeholder="Your name" required>
-
+               placeholder="Your name"
+               (input)="trimLeading('name', contactFormGroup)"
+               required>
+               
         @if (name?.invalid && name?.touched) {
-          <div class="error">Name is required</div>
+          <div class="error">
+            @if (name?.errors?.['required']) { Name is required }
+            @if (name?.errors?.['whitespace']) { Name cannot be empty spaces }
+          </div>
         }
 
         <input type="email" 
@@ -37,10 +42,14 @@
         }
 
         <textarea formControlName="message"
-                  placeholder="Your message"></textarea>
+                  placeholder="Your message"
+                  (input)="trimLeading('message', contactFormGroup)"></textarea>
 
         @if (message?.invalid && message?.touched) {
-          <div class="error">Message is required</div>
+          <div class="error">
+            @if (message?.errors?.['required']) { Message is required }
+            @if (message?.errors?.['whitespace']) { Message cannot be empty spaces }
+          </div>
         }
 
         <button type="submit" 
@@ -56,9 +65,13 @@
         <input type="text" 
                formControlName="placeName" 
                placeholder="Place name" 
+               (input)="trimLeading('placeName', suggestFormGroup)"
                required>
         @if (placeName?.invalid && placeName?.touched) {
-          <div class="error">Place name is required</div>
+          <div class="error">
+            @if (placeName?.errors?.['required']) { Place name is required }
+            @if (placeName?.errors?.['whitespace']) { Place name cannot be empty spaces }
+          </div>
         }
         
         <input type="text" 
@@ -67,9 +80,13 @@
         
         <textarea formControlName="reason" 
                   placeholder="Why should we feature this spot?" 
+                  (input)="trimLeading('reason', suggestFormGroup)"
                   required></textarea>
         @if (reason?.invalid && reason?.touched) {
-          <div class="error">Reason is required</div>
+         <div class="error">
+            @if (reason?.errors?.['required']) { Reason is required }
+            @if (reason?.errors?.['whitespace']) { Reason cannot be empty spaces }
+          </div>
         }
         <button type="submit" 
                 [disabled]="!suggestFormGroup.valid">{{ suggestForm.SUBMIT_BTN }}</button>
