@@ -88,6 +88,17 @@ export const CONTACT = {
         CITY_PLACEHOLDER: 'City (e.g. Makati)',
         REASON_PLACEHOLDER: 'Why should we feature this spot?',
         SUBMIT_BTN: 'Submit spot'
+    },
+    ERRORS: {
+        NAME_REQUIRED: 'Name is required',
+        NAME_WHITESPACE: 'Name cannot be empty spaces',
+        EMAIL_REQUIRED: 'Valid email is required',
+        MESSAGE_REQUIRED: 'Message is required',
+        MESSAGE_WHITESPACE: 'Message cannot be empty spaces',
+        PLACE_REQUIRED: 'Place name is required',
+        PLACE_WHITESPACE: 'Place name cannot be empty spaces',
+        REASON_REQUIRED: 'Reason is required',
+        REASON_WHITESPACE: 'Reason cannot be empty spaces'
     }
 }
 

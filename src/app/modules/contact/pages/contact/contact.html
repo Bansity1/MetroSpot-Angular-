@@ -29,8 +29,8 @@
                
         @if (name?.invalid && name?.touched) {
           <div class="error">
-            @if (name?.errors?.['required']) { Name is required }
-            @if (name?.errors?.['whitespace']) { Name cannot be empty spaces }
+            @if (name?.errors?.['required']) { {{ errors.NAME_REQUIRED }} }
+            @if (name?.errors?.['whitespace']) { {{ errors.NAME_WHITESPACE }} }
           </div>
         }
 
@@ -38,7 +38,7 @@
                formControlName="email"
                placeholder="Your email" required>
          @if (email?.invalid && email?.touched) {
-          <div class="error">Valid email is required</div>
+          <div class="error">{{ errors.EMAIL_REQUIRED }}</div>
         }
 
         <textarea formControlName="message"
@@ -47,8 +47,8 @@
 
         @if (message?.invalid && message?.touched) {
           <div class="error">
-            @if (message?.errors?.['required']) { Message is required }
-            @if (message?.errors?.['whitespace']) { Message cannot be empty spaces }
+            @if (message?.errors?.['required']) { {{ errors.MESSAGE_REQUIRED }} }
+            @if (message?.errors?.['whitespace']) { {{ errors.MESSAGE_WHITESPACE }} }
           </div>
         }
 
@@ -69,8 +69,8 @@
                required>
         @if (placeName?.invalid && placeName?.touched) {
           <div class="error">
-            @if (placeName?.errors?.['required']) { Place name is required }
-            @if (placeName?.errors?.['whitespace']) { Place name cannot be empty spaces }
+            @if (placeName?.errors?.['required']) { {{ errors.PLACE_REQUIRED }} }
+            @if (placeName?.errors?.['whitespace']) { {{ errors.PLACE_WHITESPACE }} }
           </div>
         }
         
@@ -84,8 +84,8 @@
                   required></textarea>
         @if (reason?.invalid && reason?.touched) {
          <div class="error">
-            @if (reason?.errors?.['required']) { Reason is required }
-            @if (reason?.errors?.['whitespace']) { Reason cannot be empty spaces }
+            @if (reason?.errors?.['required']) { {{ errors.REASON_REQUIRED }} }
+            @if (reason?.errors?.['whitespace']) { {{ errors.REASON_WHITESPACE }} }
           </div>
         }
         <button type="submit" 

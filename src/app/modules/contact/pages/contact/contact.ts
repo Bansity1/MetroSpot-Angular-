@@ -15,7 +15,7 @@ export class Contact {
   readonly labels = CONTACT.LABELS;
   readonly contactForm = CONTACT.CONTACT_FORM;
   readonly suggestForm = CONTACT.SUGGEST_FORM;
-
+  readonly errors = CONTACT.ERRORS;
   activeForm: 'contact' | 'suggest' = 'contact';
 
   contactFormGroup!: FormGroup;
@@ -104,8 +104,6 @@ export class Contact {
         });
     }
   }
-
-
 
   get name(): AbstractControl | null {return this.contactFormGroup?.get('name')}
   get email(): AbstractControl | null {return this.contactFormGroup?.get('email')}
