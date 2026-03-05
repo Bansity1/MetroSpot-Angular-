@@ -1,4 +1,9 @@
 export const HOME_CONSTANTS = {
+    SLIDES: [
+        { image: 'assets/icons/caro.avif', title: 'MetroSpot', description: 'Discover different spots around Metro Manila' },
+        { image: 'assets/icons/cargo.jpg', title: 'Find your next favorite spot', description: 'Tired of jumping between TikTok, Instagram, and blogs?' },
+        { image: 'assets/icons/caro1.jpg', title: 'Plan your weekend', description: 'Top events and places' }
+    ],
     LABELS: {
         FIND_YOUR_SPOT: 'Find your Spot!',
         CITY_SELECTION: 'Click on the city where you can enjoy your gala experience to the fullest',

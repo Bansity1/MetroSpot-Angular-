@@ -2,8 +2,7 @@ import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, OnInit, Cha
 import { HOME_CONSTANTS } from '../../../../shared/constants';
 import { City } from '../../../../shared/services/city';
 import { CityShowcase } from '../../../../shared/model/model';
-
-declare var bootstrap: any;
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -17,15 +16,10 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
   private readonly cityService = inject(City);
   private readonly cdr = inject(ChangeDetectorRef);
 
-  private bsCarousel: any;
+  private bsCarousel: bootstrap.Carousel | null = null;
   private interval = 5000;
 
-  slides = [
-    { image: 'assets/icons/caro.avif', title: 'MetroSpot', description: 'Discover different spots around Metro Manila' },
-    { image: 'assets/icons/cargo.jpg', title: 'Find your next favorite spot', description: 'Tired of jumping between TikTok, Instagram, and blogs?' },
-    { image: 'assets/icons/caro1.jpg', title: 'Plan your weekend', description: 'Top events and places' }
-  ];
-
+  readonly slides = HOME_CONSTANTS.SLIDES;
   readonly labels = HOME_CONSTANTS.LABELS;
   readonly whyBlocks = HOME_CONSTANTS.WHY_BLOCKS;
 
@@ -55,8 +49,8 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     this.startFill(0);
     console.log("AfterViewInit")
     carouselEl.addEventListener('slid.bs.carousel', () => {
-      const items = Array.from(carouselEl.querySelectorAll('.carousel-item'));
-      this.activeIndex = items.findIndex((it: any) => it.classList.contains('active'));
+      const items = Array.from(carouselEl.querySelectorAll('.carousel-item')) as HTMLElement[];
+      this.activeIndex = items.findIndex((it) => it.classList.contains('active'));
       this.startFill(this.activeIndex >= 0 ? this.activeIndex : 0);
     });
   }
@@ -84,6 +78,6 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goToSlide(index: number): void {
-    this.bsCarousel.to(index);
+    this.bsCarousel?.to(index);
   }
 }

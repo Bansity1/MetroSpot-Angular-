@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup,ValidationErrors, Validators } from '@angular/forms';
 import { CONTACT } from '../../../../shared/constants';
 import { ContactService } from '../../../../shared/services/contact-service';
+
 @Component({
   selector: 'app-contact',
   standalone: false,
@@ -45,18 +46,6 @@ export class Contact {
     });
   }
 
-  trimLeading(controlName: string, formGroup: FormGroup): void {
-    const control = formGroup.get(controlName);
-    if (!control) return;
-
-    const value: string = control.value;
-    const trimmed = value.trimStart();
-
-    if (value !== trimmed) {
-      control.setValue(trimmed, { emitEvent: false });
-    }
-  }
-
   showContactForm(): void {
     this.activeForm = 'contact';
   }
@@ -67,12 +56,7 @@ export class Contact {
 
   onContactSubmit(): void {
     if (this.contactFormGroup.valid) {
-      const trimmed = {
-        name:    this.contactFormGroup.value.name.trim(),
-        email:   this.contactFormGroup.value.email.trim(),
-        message: this.contactFormGroup.value.message.trim(),
-      };
-      this.contactService.submitContact(trimmed)
+      this.contactService.submitContact(this.contactFormGroup.value)
       .subscribe({
         next: (response) => {
           console.log('Contact submitted:', response);
@@ -86,23 +70,10 @@ export class Contact {
 
   onSuggestSubmit(): void {
     if (this.suggestFormGroup.valid) {
-      const trimmed = {
-        placeName: this.suggestFormGroup.value.placeName.trim(),
-        city:      this.suggestFormGroup.value.city?.trim(),
-        reason:    this.suggestFormGroup.value.reason.trim(),
-      };
-      this.contactService.submitSuggestion(trimmed)
-        .subscribe({
-          next: (response) => {
-            console.log('Suggestion submitted:', response);
-            alert('Thank you for your suggestion!');
-            this.suggestFormGroup.reset();
-          },
-          error: (error) => console.error('Error:', error)
-        });
+      this.contactService.submitSuggestion(this.suggestFormGroup.value)
     }
   }
-
+  
   get name(): AbstractControl | null {return this.contactFormGroup?.get('name')}
   get email(): AbstractControl | null {return this.contactFormGroup?.get('email')}
   get message(): AbstractControl | null {return this.contactFormGroup?.get('message')}

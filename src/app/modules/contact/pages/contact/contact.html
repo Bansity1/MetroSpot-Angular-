@@ -22,9 +22,9 @@
             (ngSubmit)="onContactSubmit()">
 
         <input type="text" 
+               trim  
                formControlName="name"
                placeholder="Your name"
-               (input)="trimLeading('name', contactFormGroup)"
                required>
           
         @if (name?.invalid && name?.touched) {
@@ -41,9 +41,9 @@
           <div class="error">{{ errors.EMAIL_REQUIRED }}</div>
         }
 
-        <textarea formControlName="message"
-                  placeholder="Your message"
-                  (input)="trimLeading('message', contactFormGroup)"></textarea>
+        <textarea trim  
+                  formControlName="message"
+                  placeholder="Your message"></textarea>
 
         @if (message?.invalid && message?.touched) {
           <div class="error">
@@ -63,9 +63,9 @@
             (ngSubmit)="onSuggestSubmit()">
         
         <input type="text" 
+               trim  
                formControlName="placeName" 
                placeholder="Place name" 
-               (input)="trimLeading('placeName', suggestFormGroup)"
                required>
         @if (placeName?.invalid && placeName?.touched) {
           <div class="error">
@@ -78,9 +78,9 @@
                formControlName="city" 
                placeholder="City (e.g. Makati)">
         
-        <textarea formControlName="reason" 
+        <textarea trim  
+                  formControlName="reason" 
                   placeholder="Why should we feature this spot?" 
-                  (input)="trimLeading('reason', suggestFormGroup)"
                   required></textarea>
         @if (reason?.invalid && reason?.touched) {
          <div class="error">
