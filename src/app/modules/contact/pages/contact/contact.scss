@@ -106,7 +106,34 @@ button:disabled {
 }
 
 @media (max-width: 768px) {
+  .contact-page {
+    padding: 5.5rem 1rem;
+  }
+
   .contact-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .card {
+    padding: 1.2rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-page h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
 }

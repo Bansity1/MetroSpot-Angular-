@@ -24,20 +24,20 @@
         </a>
       </div>
 
-      <button class="burger" aria-label="Toggle navigation">
+      <button class="burger" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <div class="mobile-menu">
-         <ul class="mobile-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="cities.html">Cities</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="favorites.html">Favorites</a></li>
-          <li><a href="#signin">Sign In</a></li>
-         </ul>
+      <div class="mobile-menu" [class.active]="mobileMenuOpen">
+        <ul class="mobile-links">
+          <li><a routerLink="/about" (click)="closeMobileMenu()">About</a></li>
+          <li><a routerLink="/cities" (click)="closeMobileMenu()">Cities</a></li>
+          <li><a routerLink="/contact" (click)="closeMobileMenu()">Contact Us</a></li>
+          <li><a routerLink="/favorites" (click)="closeMobileMenu()">Favorites</a></li>
+          <li><a href="#" (click)="openAuthModal($event); closeMobileMenu()">Sign In</a></li>
+        </ul>
       </div>
     </div>
   </nav>

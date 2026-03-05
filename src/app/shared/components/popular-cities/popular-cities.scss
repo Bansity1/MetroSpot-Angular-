@@ -42,7 +42,7 @@
   z-index: 2;
 }
 
-/* Popular cities - large showcase style */
+/* ─── Popular Size ─────────────────────────────────────── */
 .showcase-card.popular-size {
   align-items: center;
   padding: 50px;
@@ -67,8 +67,8 @@
   font-size: 1rem;
   margin-bottom: 15px;
   line-height: 1.5;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
@@ -76,18 +76,26 @@
   font-size: 1rem;
   font-weight: 600;
   display: inline-block;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
-.showcase-card.popular-size:hover .showcase-content p,
-.showcase-card.popular-size:hover .showcase-content span {
-  opacity: 1;
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .showcase-card.popular-size .showcase-content p,
+  .showcase-card.popular-size .showcase-content span {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .showcase-card.popular-size:hover .showcase-content p,
+  .showcase-card.popular-size:hover .showcase-content span {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Regular cities - smaller card style */
+/* ─── Regular Size ─────────────────────────────────────── */
 .showcase-card.regular-size {
   height: 220px;
   border-radius: 18px;
@@ -114,8 +122,8 @@
   font-size: 0.95rem;
   line-height: 1.4;
   margin-bottom: 15px;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
@@ -123,23 +131,60 @@
   font-size: 0.95rem;
   font-weight: 600;
   display: inline-block;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
-.showcase-card.regular-size:hover .showcase-content p,
-.showcase-card.regular-size:hover .showcase-content span {
-  opacity: 1;
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .showcase-card.regular-size .showcase-content p,
+  .showcase-card.regular-size .showcase-content span {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .showcase-card.regular-size:hover .showcase-content p,
+  .showcase-card.regular-size:hover .showcase-content span {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+/* ─── Mobile Breakpoints ───────────────────────────────── */
 @media (max-width: 768px) {
   .showcase-card.popular-size {
     padding: 30px;
+    height: 240px;
   }
 
   .showcase-card.popular-size .showcase-content h2 {
     font-size: 2rem;
+  }
+
+  .showcase-card.regular-size {
+    height: 200px;
+  }
+
+  .showcase-card.regular-size .showcase-content h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-card.popular-size {
+    padding: 20px;
+    height: 220px;
+  }
+
+  .showcase-card.popular-size .showcase-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .showcase-card.regular-size {
+    height: 180px;
+  }
+
+  .showcase-card.regular-size .showcase-content h2 {
+    font-size: 1.2rem;
   }
 }

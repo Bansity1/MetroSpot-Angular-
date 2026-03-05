@@ -11,7 +11,6 @@ import { SavedPlace } from '../../../../shared/model/model';
 })
 export class Favorites implements OnInit {
   private readonly favoritesService = inject(FavoritesService);
-
   labels = FAVORITES.LABELS;
 
   allFavorites: SavedPlace[] = [];

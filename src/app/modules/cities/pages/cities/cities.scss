@@ -77,8 +77,8 @@ body {
   font-size: 1rem;
   margin-bottom: 15px;
   line-height: 1.5;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;               
+  transform: translateY(0);  
   transition: all 0.3s ease;
 }
 
@@ -86,8 +86,8 @@ body {
   font-size: 1rem;
   font-weight: 600;
   display: inline-block;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;                  
+  transform: translateY(0);    
   transition: all 0.3s ease;
 }
 
@@ -124,8 +124,8 @@ body {
   font-size: 0.95rem;
   line-height: 1.4;
   margin-bottom: 15px;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;               
+  transform: translateY(0);   
   transition: all 0.3s ease;
 }
 
@@ -133,8 +133,8 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   display: inline-block;
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;                
+  transform: translateY(0);  
   transition: all 0.3s ease;
 }
 
@@ -195,54 +195,88 @@ body {
   gap: 25px;
 }
 
-/* Responsive design */
-@media (max-width: 1200px) {
-  .all-cities-grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (hover: hover) and (pointer: fine) {
+  .showcase-card.popular-size .showcase-content p,
+  .showcase-card.popular-size .showcase-content span {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .showcase-card.popular-size:hover .showcase-content p,
+  .showcase-card.popular-size:hover .showcase-content span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .showcase-card.regular-size .showcase-content p,
+  .showcase-card.regular-size .showcase-content span {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .showcase-card.regular-size:hover .showcase-content p,
+  .showcase-card.regular-size:hover .showcase-content span {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 900px) {
-  .popular {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 280px);
-  }
-
-  .showcase-card.popular-size {
-    padding: 40px;
-  }
-
-  .showcase-card.popular-size .showcase-content h2 {
-    font-size: 2.5rem;
-  }
-
+@media (max-width: 1024px) {
   .all-cities-grid {
-    padding: 30px 25px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .all-cities-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .popular {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
-  .showcase-card.popular-size {
-    padding: 30px;
+  .popular-header {
+    padding: 30px 20px;
   }
 
-  .showcase-card.popular-size .showcase-content h2 {
+  .popular-header h2 {
     font-size: 2rem;
   }
 
-  .popular-header,
+  .all-cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px 20px;
+    gap: 15px;
+  }
+
   .cities-header {
-    padding: 30px 25px;
+    padding: 30px 20px;
+  }
+
+  .cities-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .showcase-card.regular-size {
+    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
   .all-cities-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    padding: 10px 15px;
+    gap: 12px;
+  }
+
+  .showcase-card.regular-size {
+    height: 180px;
+  }
+
+  .popular-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .cities-header h2 {
+    font-size: 1.4rem;
   }
 }

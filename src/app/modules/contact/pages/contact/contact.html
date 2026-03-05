@@ -26,7 +26,7 @@
                placeholder="Your name"
                (input)="trimLeading('name', contactFormGroup)"
                required>
-               
+          
         @if (name?.invalid && name?.touched) {
           <div class="error">
             @if (name?.errors?.['required']) { {{ errors.NAME_REQUIRED }} }

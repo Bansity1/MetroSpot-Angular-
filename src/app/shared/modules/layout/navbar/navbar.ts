@@ -7,14 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-ngOnInit() {
-  const burger = document.querySelector('.burger');
-  const menu = document.querySelector('.mobile-menu');
-
-  burger?.addEventListener('click', () => {
-    menu?.classList.toggle('active');
-  });
-}
   showAuthModal = false;
   mobileMenuOpen = false;
 
@@ -26,6 +18,8 @@ ngOnInit() {
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
+  }
 }
-
-

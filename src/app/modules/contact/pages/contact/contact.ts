@@ -21,8 +21,6 @@ export class Contact {
   contactFormGroup!: FormGroup;
   suggestFormGroup!: FormGroup;
 
-  private apiURL = 'http://localhost:3000';
-
   constructor() {
     this.initForms();
   }
