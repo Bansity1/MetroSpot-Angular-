@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { City } from '../../../../shared/services/city';
 import { CityShowcase } from '../../../../shared/model';
-
+import { CITIES } from '../../../../shared/constants';
 @Component({
   selector: 'app-cities',
   standalone: false,
@@ -11,6 +11,8 @@ import { CityShowcase } from '../../../../shared/model';
 })
 export class Cities implements OnInit {
 
+  labels = CITIES.LABELS;
+  
   private readonly cityService = inject(City);
   private readonly cdr = inject(ChangeDetectorRef);
 

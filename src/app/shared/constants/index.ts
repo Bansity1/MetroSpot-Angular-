@@ -107,6 +107,15 @@ export const CONTACT = {
     }
 }
 
+export const CITIES = {
+  LABELS: {
+    POPULAR_CITIES: 'Popular Cities',
+    OTHER_CITIES: 'Other Cities',
+    OTHER_CITIES_DESC: 'Many more to explore within Metro Manila',
+    EXPLORE_CITY: 'Explore City'
+  }
+}
+
 export const CITY_DETAIL = {
   LABELS: {
     PICK_CATEGORY: 'Pick a Category',
