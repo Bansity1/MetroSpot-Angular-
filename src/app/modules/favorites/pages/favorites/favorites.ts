@@ -22,6 +22,9 @@ export class Favorites implements OnInit {
   editingPlace: SavedPlace | null = null;
   editDescription: string = '';
 
+  showDeleteConfirm: boolean = false;
+  placeToDelete: SavedPlace | null = null;
+
   filters = [
     { key: 'all', label: 'All'},
     { key: 'food', label: 'Food & Drink', icon: "assets/icons/food.svg" },
@@ -92,10 +95,24 @@ export class Favorites implements OnInit {
 
   removeSpot(place: SavedPlace, event: Event) {
     event.stopPropagation();
-    this.favoritesService.remove(place.name);
+    this.placeToDelete = place;
+    this.showDeleteConfirm = true;
     this.activeMenuName = null;
   }
 
+  confirmDelete() {
+    if (this.placeToDelete) {
+      this.favoritesService.remove(this.placeToDelete.name);
+      this.showDeleteConfirm = false;
+      this.placeToDelete = null;
+    }
+  }
+
+  cancelDelete() {
+    this.showDeleteConfirm = false;
+    this.placeToDelete = null;
+  }
+  
   getCategoryLabel(key: string): string {
     const map: Record<string, string> = {
       food: 'Food & Drink',

@@ -139,5 +139,16 @@ export const FAVORITES = {
     EMPTY_CATEGORY: 'No spots in this category yet.',
     SORT_RECENT: 'Recent',
     SORT_ALPHA: 'A-Z',
+    DELETE_FAVORITE: 'Delete Favorite',
+    DELETE_CONFIRMATION: 'Are you sure you want to remove',
+    FROM_FAVORITES: 'from your favorites?',
+    ACTION_CANNOT: 'This action cannot be undone.',
+    CANCEL: 'Cancel',
+    DELETE: 'Delete',
+    EDIT_DESCRIPTION: 'Edit Description',
+    UPDATE_DESCRIPTION_PLACEHOLDER: 'Update description...',
+    SAVE: 'Save',
+    OPTIONS: 'Options',
+    EDIT: 'Edit'
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { City } from '../../../../shared/services/city';
 import { CityShowcase } from '../../../../shared/model';
 
@@ -21,25 +22,18 @@ export class Cities implements OnInit {
   }
 
   loadCityData() {
-    this.cityService.getShowcaseCities().subscribe({
-      next: (cityList) => {
-        console.log('Showcase cities loaded:', cityList);
-        this.showcaseCities = cityList;
+    forkJoin({
+      showcase: this.cityService.getShowcaseCities(),
+      featured: this.cityService.getFeaturedCities()
+    }).subscribe({
+      next: (data) => {
+        console.log('All cities loaded:', data);
+        this.showcaseCities = data.showcase;
+        this.regularCities = data.featured;
         this.cdr.detectChanges();
       },
       error: (error) => {
-        console.error('Error loading showcase cities:', error);
-      }
-    });
-
-    this.cityService.getFeaturedCities().subscribe({
-      next: (cityList) => {
-        console.log('Featured cities loaded:', cityList);
-        this.regularCities = cityList;
-        this.cdr.detectChanges();
-      },
-      error: (error) => {
-        console.error('Error loading featured cities:', error);
+        console.error('Error loading cities:', error);
       }
     });
   }

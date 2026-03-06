@@ -78,11 +78,25 @@
   </div>
 </div>
 
+@if (showDeleteConfirm && placeToDelete) {
+  <div class="modal-overlay" (click)="cancelDelete()">
+    <div class="modal-box confirmation-modal" (click)="$event.stopPropagation()">
+      <h3>{{ labels.DELETE_FAVORITE }}</h3>
+      <p>{{ labels.DELETE_CONFIRMATION }} <strong>{{ placeToDelete.name }}</strong> {{ labels.FROM_FAVORITES }}</p>
+      <p class="warning-text">{{ labels.ACTION_CANNOT }}</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="cancelDelete()">{{ labels.CANCEL }}</button>
+        <button class="btn-delete" (click)="confirmDelete()">{{ labels.DELETE }}</button>
+      </div>
+    </div>
+  </div>
+}
+
 <!-- Edit Modal -->
 @if (editingPlace) {
   <div class="modal-overlay" (click)="cancelEdit()">
     <div class="modal-box" (click)="$event.stopPropagation()">
-      <h3>Edit Description</h3>
+      <h3>{{ labels.EDIT_DESCRIPTION }}</h3>
       <p class="modal-place-name">{{ editingPlace.name }}</p>
       <textarea
         class="modal-textarea"
@@ -91,8 +105,8 @@
         placeholder="Update description...">
       </textarea>
       <div class="modal-actions">
-        <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
-        <button class="btn-save" (click)="saveEdit()">Save</button>
+        <button class="btn-cancel" (click)="cancelEdit()">{{ labels.CANCEL }}</button>
+        <button class="btn-save" (click)="saveEdit()">{{ labels.SAVE }}</button>
       </div>
     </div>
   </div>

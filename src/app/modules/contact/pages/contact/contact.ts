@@ -30,7 +30,7 @@ export class Contact {
     const value = control.value || '';
     const isWhitespace = value.trim().length === 0;
     return isWhitespace && value.length > 0 ? { whitespace: true } : null;
-  }
+  } 
 
   private initForms(): void {
     this.contactFormGroup = this.fb.group({
