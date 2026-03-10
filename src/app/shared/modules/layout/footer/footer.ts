@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { FOOTER } from '../../../constants';
 @Component({
   selector: 'app-footer',
   standalone: false,
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
-
+  labels = FOOTER.LABELS;
+  socialLinks = FOOTER.SOCIAL_LINKS;
 }

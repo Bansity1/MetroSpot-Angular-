@@ -1,44 +1,64 @@
 <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">
-        <a routerLink="/">
-          <img src="assets/icons/metrospot logo1.png" alt="MetroSpot" class="logo-img">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a routerLink="/">
+        <img [src]="icons.LOGO" [alt]="altText.LOGO" class="logo-img">
+      </a>
+    </div>
+    <div class="metrospot">
+      <h1>{{ labels.BRAND_NAME }}</h1> 
+    </div>
+    <ul class="nav-links">
+      <li><a routerLink="/about">{{ labels.ABOUT }}</a></li>
+      <li><a routerLink="/cities">{{ labels.CITIES }}</a></li>
+      <li><a routerLink="/contact">{{ labels.CONTACT_US }}</a></li>
+    </ul>
+
+    <div class="nav-icons">
+      <a routerLink="/favorites" class="nav-icon" [title]="labels.FAVORITES">
+        <img [src]="icons.STAR" [alt]="altText.FAVORITES" class="icon-img">
+      </a>
+      
+      <div class="profile-wrapper">
+        <a href="#" class="nav-icon" 
+           (click)="isLoggedIn ? toggleProfileDropdown($event) : openAuthModal($event)" 
+           [title]="isLoggedIn ? labels.PROFILE : labels.SIGN_IN">
+          <img [src]="icons.PROFILE" [alt]="altText.PROFILE" class="icon-img">
         </a>
-      </div>
-      <div class="metrospot">
-        <h1>MetroSpot</h1> 
 
-      </div>
-      <ul class="nav-links">
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/cities">Cities</a></li>
-        <li><a routerLink="/contact">Contact Us</a></li>
-      </ul>
-
-      <div class="nav-icons">
-        <a routerLink="/favorites" class="nav-icon" title="Favorites">
-          <img src="assets/icons/star.svg" alt="Favorites" class="icon-img">
-        </a>
-        <a href="#" class="nav-icon" (click)="openAuthModal($event)" title="Sign In">
-          <img src="assets/icons/profile.svg" alt="Sign In" class="icon-img">
-        </a>
-      </div>
-
-      <button class="burger" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="mobile-menu" [class.active]="mobileMenuOpen">
-        <ul class="mobile-links">
-          <li><a routerLink="/about" (click)="closeMobileMenu()">About</a></li>
-          <li><a routerLink="/cities" (click)="closeMobileMenu()">Cities</a></li>
-          <li><a routerLink="/contact" (click)="closeMobileMenu()">Contact Us</a></li>
-          <li><a routerLink="/favorites" (click)="closeMobileMenu()">Favorites</a></li>
-          <li><a href="#" (click)="openAuthModal($event); closeMobileMenu()">Sign In</a></li>
-        </ul>
+        <div class="profile-dropdown" [class.active]="showProfileDropdown && isLoggedIn">
+          <div class="dropdown-header">
+            <p class="user-email">{{ userEmail }}</p>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a routerLink="/favorites" (click)="showProfileDropdown = false" class="dropdown-item">
+            <img [src]="icons.STAR" [alt]="altText.FAVORITES">
+            {{ labels.MY_FAVORITES }}
+          </a>
+          <div class="dropdown-divider"></div>
+          <button (click)="logout()" class="dropdown-logout">
+            {{ labels.LOGOUT }}
+          </button>
+        </div>
       </div>
     </div>
-  </nav>
-  <app-auth-modal [(isOpen)]="showAuthModal"></app-auth-modal>
+
+    <button class="burger" [attr.aria-label]="labels.TOGGLE_NAV" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="mobile-menu" [class.active]="mobileMenuOpen">
+      <ul class="mobile-links">
+        <li><a routerLink="/about" (click)="closeMobileMenu()">{{ labels.ABOUT }}</a></li>
+        <li><a routerLink="/cities" (click)="closeMobileMenu()">{{ labels.CITIES }}</a></li>
+        <li><a routerLink="/contact" (click)="closeMobileMenu()">{{ labels.CONTACT_US }}</a></li>
+        <li><a routerLink="/favorites" (click)="closeMobileMenu()">{{ labels.FAVORITES }}</a></li>
+        <li *ngIf="!isLoggedIn"><a href="#" (click)="openAuthModal($event); closeMobileMenu()">{{ labels.SIGN_IN }}</a></li>
+        <li *ngIf="isLoggedIn"><a href="#" (click)="logout(); closeMobileMenu()">{{ labels.LOGOUT }}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<app-auth-modal [(isOpen)]="showAuthModal"></app-auth-modal>

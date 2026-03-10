@@ -1,3 +1,78 @@
+export const NAVBAR = {
+  LABELS: {
+    BRAND_NAME: 'MetroSpot',
+    ABOUT: 'About',
+    CITIES: 'Cities',
+    CONTACT_US: 'Contact Us',
+    FAVORITES: 'Favorites',
+    SIGN_IN: 'Sign In',
+    LOGOUT: 'Logout',
+    MY_FAVORITES: 'My Favorites',
+    PROFILE: 'Profile',
+    TOGGLE_NAV: 'Toggle navigation'
+  },
+  ICONS: {
+    LOGO: 'assets/icons/metrospot logo1.png',
+    STAR: 'assets/icons/star.svg',
+    PROFILE: 'assets/icons/profile.svg'
+  },
+  ALT_TEXT: {
+    LOGO: 'MetroSpot',
+    FAVORITES: 'Favorites',
+    PROFILE: 'Profile'
+  }
+}
+
+export const AUTH_MODAL = {
+  LABELS: {
+    SIGN_IN_TITLE: 'Sign In',
+    SIGN_UP_TITLE: 'Create Account',
+    SIGN_IN_SUBTITLE: 'Welcome back!',
+    SIGN_UP_SUBTITLE: 'Join MetroSpot and start saving your favorite spots',
+    EMAIL_PLACEHOLDER: 'Email',
+    PASSWORD_PLACEHOLDER: 'Password',
+    SIGN_IN_BTN: 'Sign In',
+    SIGN_UP_BTN: 'Create Account',
+    LOADING: 'Loading...',
+    NO_ACCOUNT: "Don't have an account?",
+    HAVE_ACCOUNT: 'Already have an account?',
+    SIGN_UP_LINK: 'Sign Up',
+    SIGN_IN_LINK: 'Sign In'
+  },
+  ICONS: {
+    EMAIL: 'assets/icons/email.svg',
+    LOCK: 'assets/icons/lock.svg'
+  }
+}
+
+export const FOOTER = {
+  LABELS: {
+    BRAND_NAME: 'MetroSpot',
+    DESCRIPTION: 'Discover exciting spots around Metro Manila',
+    CONNECT: 'Connect With Us'
+  },
+  SOCIAL_LINKS: [
+    {
+      href: '#',
+      ariaLabel: 'LinkedIn',
+      icon: 'assets/icons/linkedin.svg',
+      alt: 'LinkedIn'
+    },
+    {
+      href: '#',
+      ariaLabel: 'Facebook',
+      icon: 'assets/icons/facebook.svg',
+      alt: 'Facebook'
+    },
+    {
+      href: '#',
+      ariaLabel: 'Instagram',
+      icon: 'assets/icons/instagram.svg',
+      alt: 'Instagram'
+    }
+  ]
+}
+
 export const HOME_CONSTANTS = {
     SLIDES: [
         { image: 'assets/icons/caro.avif', title: 'MetroSpot', description: 'Discover different spots around Metro Manila' },

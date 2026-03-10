@@ -54,3 +54,25 @@ export interface SavedPlace extends Place {
   savedAt: Date;
   short: string;  
 }
+
+export interface AuthResponse {
+  accessToken: string;
+  user: {
+    id: number;
+    email: string;
+  };
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface RegisterCredentials extends LoginCredentials {
+}
+
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+}

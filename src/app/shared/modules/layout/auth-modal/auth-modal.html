@@ -1,33 +1,52 @@
 <div class="modal-profile" [class.active]="isOpen" (click)="onBackdropClick($event)">
   <div class="auth-modal">
     <button class="close-modal" (click)="close()">&times;</button>
+    
+    <h2>{{ isLoginMode ? labels.SIGN_IN_TITLE : labels.SIGN_UP_TITLE }}</h2>
+    <p class="subtitle">{{ isLoginMode ? labels.SIGN_IN_SUBTITLE : labels.SIGN_UP_SUBTITLE }}</p>
 
-    <h2>Sign In</h2>
-    <p class="subtitle">
-      Keep track of the places you love across Metro Manila
-    </p>
+    <form (ngSubmit)="onSubmit()" #authForm="ngForm">
+      <div class="input-group">
+        <img [src]="icons.EMAIL" alt="Email">
+        <input 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email"
+          [placeholder]="labels.EMAIL_PLACEHOLDER"
+          required
+          trim>
+      </div>
 
-    <button class="google-btn">
-      <img src="assets/icons/google.svg" alt="">
-      Continue with Google
-    </button>
+      <div class="input-group">
+        <img [src]="icons.LOCK" alt="Password">
+        <input 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password"
+          [placeholder]="labels.PASSWORD_PLACEHOLDER"
+          required
+          trim>
+      </div>
 
-    <div class="divider">or</div>
+      <div class="error-message" *ngIf="errorMessage" style="color: #dc3545; margin: 0.5rem 0; font-size: 0.9rem;">
+        {{ errorMessage }}
+      </div>
 
-    <div class="input-group">
-      <img src="assets/icons/email.svg" alt="">
-      <input type="email" placeholder="Email Address">
-    </div>
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [disabled]="isLoading">
+        {{ isLoading ? labels.LOADING : (isLoginMode ? labels.SIGN_IN_BTN : labels.SIGN_UP_BTN) }}
+      </button>
+    </form>
 
-    <div class="input-group">
-      <img src="assets/icons/lock.svg" alt="">
-      <input type="password" placeholder="Password">
-    </div>
-
-    <button class="submit-btn">Sign In</button>
-
-    <p class="modal-footer">
-      You can explore MetroSpot without an account
-    </p>
+    <div class="modal-footer">
+    <span class="footer-text">
+      {{ isLoginMode ? labels.NO_ACCOUNT : labels.HAVE_ACCOUNT }}
+      <a href="#" class="footer-link" (click)="toggleMode(); $event.preventDefault()">
+        {{ isLoginMode ? labels.SIGN_UP_LINK : labels.SIGN_IN_LINK }}
+      </a>
+    </span>
+</div>
   </div>
 </div>
